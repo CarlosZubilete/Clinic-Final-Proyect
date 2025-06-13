@@ -24,6 +24,24 @@ namespace Views
     protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
     /// <summary>
+    /// scriptManager control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.ScriptManager scriptManager;
+
+    /// <summary>
+    /// UpdatePanel_DDL control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.UpdatePanel UpdatePanel_DDL;
+
+    /// <summary>
     /// ddlProvincies control.
     /// </summary>
     /// <remarks>
@@ -31,5 +49,50 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList ddlProvincies;
+
+    /// <summary>
+    /// requiredProvincie control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredProvincie;
+
+    /// <summary>
+    /// ddlLocalities control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlLocalities;
+
+    /// <summary>
+    /// requiredLocaly control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLocaly;
+
+    /// <summary>
+    /// btnSend control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnSend;
+
+    /// <summary>
+    /// lblShowMessage control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblShowMessage;
   }
 }
