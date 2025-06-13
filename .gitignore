@@ -1,0 +1,53 @@
+# Carpetas de salida de compilación
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# Publicación y paquetes
+publish/
+*.nupkg
+*.snupkg
+*.nuspec
+
+# Configuración de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.dbmdl
+*.jfm
+*.vssscc
+*.vspscc
+*.cache
+*.log
+
+# Archivos y carpetas de VS y herramientas relacionadas
+.vs/
+.idea/
+*.sln.iml
+
+# Paquetes de NuGet
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos generados por dotnet
+*.deps.json
+*.runtimeconfig.json
+
+# Archivos del sistema operativo
+Thumbs.db
+Desktop.ini
+
+# Otros archivos temporales
+*.tmp
+*.bak
+
+# Carpetas del usuario o documentación interna
+dev-guides/
+
+
+
+
