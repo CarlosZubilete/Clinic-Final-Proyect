@@ -15,6 +15,42 @@
   <form id="form1" runat="server">
     <%-- SCRIPT MANAGER --%>
     <asp:ScriptManager runat="server" ID="scriptManager" />
+    <%-- DNI --%>
+    <div>
+      <span>DNI:</span>
+    </div>
+    <%--  NAME --%>
+    <div>
+      <span>Name:</span>
+      <asp:TextBox ID="textName" runat="server"></asp:TextBox>
+
+    </div>
+    <%-- LAST-NAME --%>
+    <div>
+      <span>Last-Name: </span>
+      <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+    </div>
+    <%-- SEXO --%>
+    <div>
+      <span>Sexo:</span>
+      <asp:RadioButtonList ID="radioListSexo" runat="server">
+        <asp:ListItem Value="man">Man</asp:ListItem>
+        <asp:ListItem Value="woman">Woman</asp:ListItem>
+      </asp:RadioButtonList>
+    </div>
+    <%-- FECHA-NACIMIENTO --%>
+    <div>
+    </div>
+    <%-- NACIONALIDAD --%>
+    <div>
+      <span>Nacionality: 
+        <asp:DropDownList ID="ddlNacionalities" runat="server">
+          <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
+        </asp:DropDownList>
+        <%-- REQUIRED --%>
+        <asp:RequiredFieldValidator ID="requiredNacionality" runat="server" Text="You must select one" ControlToValidate="ddlNacionalities" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+      </span>
+    </div>
     <div>
       <%-- UPPANEL FOR THE DROP-DOWN-LIST --%>
       <asp:UpdatePanel ID="UpdatePanel_DDL" runat="server">
@@ -38,6 +74,22 @@
           </span>
         </ContentTemplate>
       </asp:UpdatePanel>
+      <%-- ADDRESS--%>
+      <div>
+        <span>Address:</span>
+        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+      </div>
+      <%-- EMAIL--%>
+      <div>
+        <span>E-mail: </span>
+        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+      </div>
+      <%-- PHONE-NUMBER--%>
+      <div>
+        <span>Phone: </span>
+        <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+      </div>
+
 
       <hr />
       <%-- BUTTON SEND --%>

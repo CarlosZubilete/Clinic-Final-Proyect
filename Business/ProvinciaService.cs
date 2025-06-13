@@ -10,11 +10,11 @@ namespace Business
 {
   public class ProvinciaService
   {
-    private DaoProvincia _dao = new DaoProvincia();
     public ProvinciaService() { }
     public DataTable GetAllProvincies()
     {
-      return _dao.GetAllProvincies();
+      DaoProvincia dao = new DaoProvincia();
+      return dao.GetAllProvincies();
     }
   }
 }

@@ -17,6 +17,7 @@ namespace Views
       if (!IsPostBack)
       {
         this.Load_ProvinciasDropDown();
+        this.Load_NacionalitiesDropDown();
       }
     }
     protected void btnSend_Click(object sender, EventArgs e)
@@ -65,6 +66,18 @@ namespace Views
       ddlLocalities.DataBind();
 
       ddlLocalities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+    }
+    private void Load_NacionalitiesDropDown()
+    {
+      NacionalidadService nacionalidadService = new NacionalidadService();
+      DataTable dataTable = nacionalidadService.GetNacionalidades();
+
+      ddlNacionalities.DataSource = dataTable;
+      ddlNacionalities.DataTextField = "Nombre";
+      ddlNacionalities.DataValueField = "Id_Nacionalidad";
+      ddlNacionalities.DataBind();
+
+      ddlNacionalities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
   }
 }

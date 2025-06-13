@@ -33,6 +33,51 @@ namespace Views
     protected global::System.Web.UI.ScriptManager scriptManager;
 
     /// <summary>
+    /// textName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox textName;
+
+    /// <summary>
+    /// txtLastName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtLastName;
+
+    /// <summary>
+    /// radioListSexo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButtonList radioListSexo;
+
+    /// <summary>
+    /// ddlNacionalities control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlNacionalities;
+
+    /// <summary>
+    /// requiredNacionality control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredNacionality;
+
+    /// <summary>
     /// UpdatePanel_DDL control.
     /// </summary>
     /// <remarks>
@@ -76,6 +121,33 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLocaly;
+
+    /// <summary>
+    /// txtAddress control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtAddress;
+
+    /// <summary>
+    /// txtEmail control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+    /// <summary>
+    /// txtPhone control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtPhone;
 
     /// <summary>
     /// btnSend control.
