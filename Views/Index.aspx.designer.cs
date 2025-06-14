@@ -33,6 +33,42 @@ namespace Views
     protected global::System.Web.UI.ScriptManager scriptManager;
 
     /// <summary>
+    /// txtDNI control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDNI;
+
+    /// <summary>
+    /// requiredDNI control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDNI;
+
+    /// <summary>
+    /// regexDNI control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDNI;
+
+    /// <summary>
+    /// rangeDNI control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RangeValidator rangeDNI;
+
+    /// <summary>
     /// textName control.
     /// </summary>
     /// <remarks>
@@ -40,6 +76,24 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox textName;
+
+    /// <summary>
+    /// requiredName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredName;
+
+    /// <summary>
+    /// regexName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexName;
 
     /// <summary>
     /// txtLastName control.
@@ -51,6 +105,60 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
     /// <summary>
+    /// requiredLastName control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLastName;
+
+    /// <summary>
+    /// RegularExpressionValidator1 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+    /// <summary>
+    /// txtDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDate;
+
+    /// <summary>
+    /// requiredDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDate;
+
+    /// <summary>
+    /// regexDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDate;
+
+    /// <summary>
+    /// lblDateError control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblDateError;
+
+    /// <summary>
     /// radioListSexo control.
     /// </summary>
     /// <remarks>
@@ -58,6 +166,15 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RadioButtonList radioListSexo;
+
+    /// <summary>
+    /// requiredSexo control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredSexo;
 
     /// <summary>
     /// ddlNacionalities control.
@@ -141,6 +258,15 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
     /// <summary>
+    /// regexA control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexA;
+
+    /// <summary>
     /// txtPhone control.
     /// </summary>
     /// <remarks>
@@ -148,6 +274,15 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+    /// <summary>
+    /// regexPhone control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPhone;
 
     /// <summary>
     /// btnSend control.

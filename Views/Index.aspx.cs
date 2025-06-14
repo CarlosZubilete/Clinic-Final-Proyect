@@ -16,17 +16,10 @@ namespace Views
     {
       if (!IsPostBack)
       {
-        this.Load_ProvinciasDropDown();
-        this.Load_NacionalitiesDropDown();
+        Load_ProvinciasDropDown();
+        Load_NacionalitiesDropDown();
       }
     }
-    protected void btnSend_Click(object sender, EventArgs e)
-    {
-
-      lblShowMessage.Text = $"Provincie: {ddlProvincies.SelectedItem} ";
-      lblShowMessage.Text += $"Localidad: {ddlLocalities.SelectedItem} "; 
-    }
-
     protected void ddlProvincies_SelectedIndexChanged(object sender, EventArgs e)
     {
       int selectedId = Convert.ToInt32(ddlProvincies.SelectedValue);
@@ -78,6 +71,30 @@ namespace Views
       ddlNacionalities.DataBind();
 
       ddlNacionalities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+    }
+    protected void btnSend_Click(object sender, EventArgs e)
+    {
+
+      lblShowMessage.Text = $"Provincie: {ddlProvincies.SelectedItem} ";
+      lblShowMessage.Text += $"Localidad: {ddlLocalities.SelectedItem} ";
+
+      string year;
+      string day;
+      string month;
+
+      day = txtDate.Text.ToString().Split('/')[0];
+      month = txtDate.Text.ToString().Split('/')[1];
+      year = txtDate.Text.ToString().Split('/')[2];
+
+      Fecha fecha = new Fecha(Convert.ToInt32(day), Convert.ToInt32(month), Convert.ToInt32(year));
+      if (!fecha.FechaValida())
+      {
+        lblDateError.Text = "Date is invalided";
+        return;
+      }
+
+      lblDateError.Text = $"Date: {day} / {month} / {year}";
+     
     }
   }
 }
