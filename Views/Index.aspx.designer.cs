@@ -33,7 +33,6 @@ namespace Views
     protected global::System.Web.UI.ScriptManager scriptManager;
 
     /// <summary>
-<<<<<<< HEAD
     /// txtDNI control.
     /// </summary>
     /// <remarks>
@@ -70,8 +69,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RangeValidator rangeDNI;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// textName control.
     /// </summary>
     /// <remarks>
@@ -81,7 +78,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox textName;
 
     /// <summary>
-<<<<<<< HEAD
     /// requiredName control.
     /// </summary>
     /// <remarks>
@@ -100,8 +96,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RegularExpressionValidator regexName;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// txtLastName control.
     /// </summary>
     /// <remarks>
@@ -111,7 +105,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtLastName;
 
     /// <summary>
-<<<<<<< HEAD
     /// requiredLastName control.
     /// </summary>
     /// <remarks>
@@ -166,8 +159,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.Label lblDateError;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// radioListSexo control.
     /// </summary>
     /// <remarks>
@@ -177,7 +168,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RadioButtonList radioListSexo;
 
     /// <summary>
-<<<<<<< HEAD
     /// requiredSexo control.
     /// </summary>
     /// <remarks>
@@ -187,8 +177,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredSexo;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// ddlNacionalities control.
     /// </summary>
     /// <remarks>
@@ -270,7 +258,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
     /// <summary>
-<<<<<<< HEAD
     /// regexA control.
     /// </summary>
     /// <remarks>
@@ -280,8 +267,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RegularExpressionValidator regexA;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// txtPhone control.
     /// </summary>
     /// <remarks>
@@ -291,7 +276,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtPhone;
 
     /// <summary>
-<<<<<<< HEAD
     /// regexPhone control.
     /// </summary>
     /// <remarks>
@@ -301,8 +285,6 @@ namespace Views
     protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPhone;
 
     /// <summary>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     /// btnSend control.
     /// </summary>
     /// <remarks>

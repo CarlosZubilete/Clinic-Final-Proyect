@@ -16,13 +16,8 @@ namespace Views
     {
       if (!IsPostBack)
       {
-<<<<<<< HEAD
         Load_ProvinciasDropDown();
         Load_NacionalitiesDropDown();
-=======
-        this.Load_ProvinciasDropDown();
-        this.Load_NacionalitiesDropDown();
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
       }
     }
     protected void ddlProvincies_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,7 +72,7 @@ namespace Views
 
       ddlNacionalities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
-<<<<<<< HEAD
+
     protected void btnSend_Click(object sender, EventArgs e)
     {
 
@@ -100,9 +95,7 @@ namespace Views
       }
 
       lblDateError.Text = $"Date: {day} / {month} / {year}";
-     
+
     }
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
   }
 }

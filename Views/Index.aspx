@@ -18,32 +18,25 @@
     <%-- DNI --%>
     <div>
       <span>DNI:</span>
-<<<<<<< HEAD
       <asp:TextBox ID="txtDNI" runat="server"></asp:TextBox>
       <%-- VALIDATIONS--%>
       <asp:RequiredFieldValidator ID="requiredDNI" runat="server" Display="Dynamic" ControlToValidate="txtDNI" Text="This field is required"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="regexDNI" runat="server" ControlToValidate="txtDNI" ValidationExpression="^[1-9][0-9]*$" Text="Only numbers"></asp:RegularExpressionValidator>
       <asp:RangeValidator ID="rangeDNI" runat="server" ControlToValidate="txtDNI" Display="Dynamic" Text="Must be 8 numbers" Type="Integer" MaximumValue="99999999" MinimumValue="10000000"></asp:RangeValidator>
-=======
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     </div>
     <%--  NAME --%>
     <div>
       <span>Name:</span>
       <asp:TextBox ID="textName" runat="server"></asp:TextBox>
-<<<<<<< HEAD
+
       <%-- VALIDATIONS --%>
       <asp:RequiredFieldValidator ID="requiredName" runat="server" Display="Dynamic" ControlToValidate="textName" Text="This field is required"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="regexName" runat="server" Text="Must be characters" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ControlToValidate="textName"></asp:RegularExpressionValidator>
-=======
-
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     </div>
     <%-- LAST-NAME --%>
     <div>
       <span>Last-Name: </span>
       <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-<<<<<<< HEAD
       <asp:RequiredFieldValidator ID="requiredLastName" runat="server" Display="Dynamic" ControlToValidate="txtLastName" Text="This field is required"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="Must be characters" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ControlToValidate="txtLastName"></asp:RegularExpressionValidator>
     </div>
@@ -58,23 +51,14 @@
         Display="Dynamic" ControlToValidate="txtDate" ValidationGroup="Date"></asp:RegularExpressionValidator>
       <asp:Label runat="server" ID="lblDateError"></asp:Label>
     </div>
-=======
-    </div>
     <%-- SEXO --%>
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     <div>
       <span>Sexo:</span>
       <asp:RadioButtonList ID="radioListSexo" runat="server">
         <asp:ListItem Value="man">Man</asp:ListItem>
         <asp:ListItem Value="woman">Woman</asp:ListItem>
       </asp:RadioButtonList>
-<<<<<<< HEAD
       <asp:RequiredFieldValidator ID="requiredSexo" runat="server" Text="You must select one" ControlToValidate="radioListSexo" Display="Dynamic"></asp:RequiredFieldValidator>
-=======
-    </div>
-    <%-- FECHA-NACIMIENTO --%>
-    <div>
->>>>>>> 936a110d48d2d468853754784fb3bee163c9afc6
     </div>
     <%-- NACIONALIDAD --%>
     <div>
@@ -118,33 +102,14 @@
       <div>
         <span>E-mail: </span>
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="regexA" runat="server" Text="Must be a email" Display="Dynamic" ValidationExpression="^[\w\.-]+@[\w\.-]+\.\w{2,}$" ControlToValidate="txtEmail"></asp:RegularExpressionValidator>
       </div>
       <%-- PHONE-NUMBER--%>
       <div>
         <span>Phone: </span>
         <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="regexPhone" runat="server" Text="Must be numbers" Display="Dynamic" ValidationExpression="^[0-9]*$" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
       </div>
-
-
-      <%-- ADDRESS--%>
-      <div>
-        <span>Address:</span>
-        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-      </div>
-      <%-- EMAIL--%>
-      <div>
-        <span>E-mail: </span>
-        <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="regexA" runat="server" Text="Must be a email" Display="Dynamic" ValidationExpression="^[\w\.-]+@[\w\.-]+\.\w{2,}$" ControlToValidate="txtLastName"></asp:RegularExpressionValidator>
-      </div>
-      <%-- PHONE-NUMBER--%>
-      <div>
-        <span>Phone: </span>
-        <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="regexPhone" runat="server" Text="Must be numbers" Display="Dynamic" ValidationExpression="" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
-      </div>
-
-
       <hr />
       <%-- BUTTON SEND --%>
       <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" ValidationGroup="Date" />
