@@ -8,9 +8,12 @@ namespace Entities
 {
   public class Fecha
   {
+    /*
     private int _dia;
     private int _mes;
     private int _anio;
+    */
+    private int _dia, _mes, _anio;
     private int[] _diasMeses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     public Fecha()
@@ -55,6 +58,10 @@ namespace Entities
         //}
           _mes = value;
       }
+    }
+    public DateTime ToDateTime()
+    {
+      return new DateTime(_anio, _mes, _dia);
     }
     public bool FechaValida()
     {

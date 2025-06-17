@@ -12,6 +12,42 @@ namespace Data
   {
     private const String _connectiongString = @"Data Source=DESKTOP-LFTFVP5\SQLEXPRESS;Initial Catalog=Clinica_DB;Integrated Security=True";
     public DataAccess() { }
+    public Boolean RecordExists(String query)
+    {
+      Boolean state = false;
+      SqlConnection connection = GetConnection();
+      SqlCommand command = new SqlCommand(query, connection);
+
+      SqlDataReader reader = command.ExecuteReader();
+
+      if (reader.Read())
+      {
+        state = true;
+      }
+
+      return state;
+    }
+    public int ExecuteStoredProcedure(SqlCommand command, String storedProcedure)
+    {
+      try
+      {
+        using (SqlConnection connection = GetConnection())
+        {
+          if (connection == null) return -1;
+
+          // connection.Open();
+          command.Connection = connection;
+          command.CommandType = CommandType.StoredProcedure;  // Indico el tipo de procedimiento.
+          command.CommandText = storedProcedure; // Nombre del procedimiento o query.
+          return command.ExecuteNonQuery(); // Ejecuto el procedimiento y retorna las filas afectadas.
+        }
+      }
+      catch (SqlException ex)
+      {
+        Console.WriteLine("Error when the command executed: " + ex.Message);
+        return -1;
+      }
+    }
     public DataTable GetDataTable(String nameTable, String querySql)
     {
       using (SqlConnection connection = GetConnection())

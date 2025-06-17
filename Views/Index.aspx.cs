@@ -87,15 +87,46 @@ namespace Views
       month = txtDate.Text.ToString().Split('/')[1];
       year = txtDate.Text.ToString().Split('/')[2];
 
-      Fecha fecha = new Fecha(Convert.ToInt32(day), Convert.ToInt32(month), Convert.ToInt32(year));
-      if (!fecha.FechaValida())
+      Fecha fechaNacimiento = new Fecha(Convert.ToInt32(day), Convert.ToInt32(month), Convert.ToInt32(year));
+
+      if (!fechaNacimiento.FechaValida())
       {
         lblDateError.Text = "Date is invalided";
         return;
       }
+      else
+      {
+
+        string dni = txtDNI.Text.ToString().Trim();
+        string name = txtName.Text.ToString().Trim();
+        string lastName = txtLastName.ToString().Trim();
+        char sexo = radioListSexo.SelectedValue[0];
+        string nacionality = ddlNacionalities.SelectedValue.ToString();
+        string province = ddlProvincies.SelectedValue.ToString();
+        string locality = ddlNacionalities.SelectedValue.ToString();
+        string address = txtAddress.Text.ToString().Trim();
+        string email = txtEmail.Text.ToString().Trim();
+        string phone = txtPhone.Text.ToString().Trim();
+
+        Persona persona = new Persona { DNI = dni, Name = name, LastName = lastName, Sexo = sexo, IdNacionalidad = Convert.ToInt32(nacionality), IdProvincia = Convert.ToInt32(province), IdLocalidad = Convert.ToInt32(locality), Addres = address, Email = email, Phone = phone, FechaNacimiento = fechaNacimiento };
+
+        PersonaService personaService  = new PersonaService();
+        if(!personaService.AddPersona(ref persona))
+        {
+          lblShowMessage.Text = $"Can't add the register"; 
+        }
+        else
+        {
+          lblShowMessage.Text = $"Can add the register successfully";
+        }
+      }
 
       lblDateError.Text = $"Date: {day} / {month} / {year}";
+
+
 
     }
   }
 }
+
+// TODO: NAME AND LASTNAME, DON'T HAVE A CONTROLS OF MAX 50 CARACTERES.

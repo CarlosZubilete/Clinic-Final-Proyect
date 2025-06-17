@@ -27,18 +27,18 @@
     <%--  NAME --%>
     <div>
       <span>Name:</span>
-      <asp:TextBox ID="textName" runat="server"></asp:TextBox>
+      <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
 
       <%-- VALIDATIONS --%>
       <asp:RequiredFieldValidator ID="requiredName" runat="server" Display="Dynamic" ControlToValidate="textName" Text="This field is required"></asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ID="regexName" runat="server" Text="Must be characters" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ControlToValidate="textName"></asp:RegularExpressionValidator>
+      <asp:RegularExpressionValidator ID="regexName" runat="server" Text="Must be characters (max 50)" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{1,50}$" ControlToValidate="textName"></asp:RegularExpressionValidator>
     </div>
     <%-- LAST-NAME --%>
     <div>
       <span>Last-Name: </span>
       <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
       <asp:RequiredFieldValidator ID="requiredLastName" runat="server" Display="Dynamic" ControlToValidate="txtLastName" Text="This field is required"></asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="Must be characters" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ControlToValidate="txtLastName"></asp:RegularExpressionValidator>
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="Must be characters (max 50)" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{1,50}$" ControlToValidate="txtLastName"></asp:RegularExpressionValidator>
     </div>
     <%-- DATE --%>
     <div>
@@ -55,8 +55,8 @@
     <div>
       <span>Sexo:</span>
       <asp:RadioButtonList ID="radioListSexo" runat="server">
-        <asp:ListItem Value="man">Man</asp:ListItem>
-        <asp:ListItem Value="woman">Woman</asp:ListItem>
+        <asp:ListItem Value="M">Man</asp:ListItem>
+        <asp:ListItem Value="F">Woman</asp:ListItem>
       </asp:RadioButtonList>
       <asp:RequiredFieldValidator ID="requiredSexo" runat="server" Text="You must select one" ControlToValidate="radioListSexo" Display="Dynamic"></asp:RequiredFieldValidator>
     </div>
@@ -96,13 +96,14 @@
       <%-- ADDRESS--%>
       <div>
         <span>Address:</span>
-        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox> 
+        <asp:RegularExpressionValidator ID="regexAddress" runat="server" Text="Max. 100 characters" Display="Dynamic" ValidationExpression="^.{0,100}$" ControlToValidate="txtAddress" ></asp:RegularExpressionValidator>
       </div>
       <%-- EMAIL--%>
       <div>
         <span>E-mail: </span>
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="regexA" runat="server" Text="Must be a email" Display="Dynamic" ValidationExpression="^[\w\.-]+@[\w\.-]+\.\w{2,}$" ControlToValidate="txtEmail"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="regexEmail" runat="server" Text="Must be a email" Display="Dynamic" ValidationExpression="^[\w\.-]+@[\w\.-]+\.\w{2,}$" ControlToValidate="txtEmail"></asp:RegularExpressionValidator>
       </div>
       <%-- PHONE-NUMBER--%>
       <div>
@@ -122,3 +123,5 @@
   </form>
 </body>
 </html>
+
+<%-- TODO: AGRUPAR LOS TEXT-BOX PARA INFROMARLE AL USUARIO , EN DONDE ESTA HERRANDO. --%>

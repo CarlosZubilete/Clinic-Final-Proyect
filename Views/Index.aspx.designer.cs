@@ -69,13 +69,13 @@ namespace Views
     protected global::System.Web.UI.WebControls.RangeValidator rangeDNI;
 
     /// <summary>
-    /// textName control.
+    /// txtName control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox textName;
+    protected global::System.Web.UI.WebControls.TextBox txtName;
 
     /// <summary>
     /// requiredName control.
@@ -249,6 +249,15 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
     /// <summary>
+    /// regexAddress control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexAddress;
+
+    /// <summary>
     /// txtEmail control.
     /// </summary>
     /// <remarks>
@@ -258,13 +267,13 @@ namespace Views
     protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
     /// <summary>
-    /// regexA control.
+    /// regexEmail control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexA;
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmail;
 
     /// <summary>
     /// txtPhone control.

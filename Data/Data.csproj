@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DaoLocalidades.cs" />
     <Compile Include="DaoNacionalidades.cs" />
+    <Compile Include="DaoPersona.cs" />
     <Compile Include="DaoProvincia.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
