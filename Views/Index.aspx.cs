@@ -76,8 +76,8 @@ namespace Views
     protected void btnSend_Click(object sender, EventArgs e)
     {
 
-      lblShowMessage.Text = $"Provincie: {ddlProvincies.SelectedItem} ";
-      lblShowMessage.Text += $"Localidad: {ddlLocalities.SelectedItem} ";
+      //lblShowMessage.Text = $"Provincie: {ddlProvincies.SelectedItem} ";
+      //lblShowMessage.Text += $"Localidad: {ddlLocalities.SelectedItem} ";
 
       string year;
       string day;
@@ -96,32 +96,37 @@ namespace Views
       }
       else
       {
-
-        string dni = txtDNI.Text.ToString().Trim();
-        string name = txtName.Text.ToString().Trim();
-        string lastName = txtLastName.ToString().Trim();
-        char sexo = radioListSexo.SelectedValue[0];
-        string nacionality = ddlNacionalities.SelectedValue.ToString();
-        string province = ddlProvincies.SelectedValue.ToString();
-        string locality = ddlNacionalities.SelectedValue.ToString();
-        string address = txtAddress.Text.ToString().Trim();
-        string email = txtEmail.Text.ToString().Trim();
-        string phone = txtPhone.Text.ToString().Trim();
-
-        Persona persona = new Persona { DNI = dni, Name = name, LastName = lastName, Sexo = sexo, IdNacionalidad = Convert.ToInt32(nacionality), IdProvincia = Convert.ToInt32(province), IdLocalidad = Convert.ToInt32(locality), Addres = address, Email = email, Phone = phone, FechaNacimiento = fechaNacimiento };
-
-        PersonaService personaService  = new PersonaService();
-        if(!personaService.AddPersona(ref persona))
+        if (Page.IsValid)
         {
-          lblShowMessage.Text = $"Can't add the register"; 
-        }
-        else
-        {
-          lblShowMessage.Text = $"Can add the register successfully";
-        }
+          string dni = txtDNI.Text.ToString().Trim();
+          string name = txtName.Text.ToString().Trim();
+          string lastName = txtLastName.Text.ToString().Trim();
+          char sexo = radioListSexo.SelectedValue[0];
+          string nacionality = ddlNacionalities.SelectedValue.ToString();
+          string province = ddlProvincies.SelectedValue.ToString();
+          string locality = ddlNacionalities.SelectedValue.ToString();
+          string address = txtAddress.Text.ToString().Trim();
+          string email = txtEmail.Text.ToString().Trim();
+          string phone = txtPhone.Text.ToString().Trim();
+
+          Persona persona = new Persona { DNI = dni, Name = name, LastName = lastName, Sexo = sexo, IdNacionalidad = Convert.ToInt32(nacionality), IdProvincia = Convert.ToInt32(province), IdLocalidad = Convert.ToInt32(locality), Addres = address, Email = email, Phone = phone, FechaNacimiento = fechaNacimiento };
+
+          PersonaService personaService = new PersonaService();
+
+          if (!personaService.AddPersona(ref persona))
+          {
+            lblShowMessage.Text = $"Can't add the register";
+          }
+          else
+          {
+            lblShowMessage.Text = $"Can add the register successfully";
+          }
+        } 
+
+        //lblDateError.Text += $"Nombre: {day} / {month} / {year}";
+        //lblDateError.Text += $"Date: {day} / {month} / {year}";
+        
       }
-
-      lblDateError.Text = $"Date: {day} / {month} / {year}";
 
 
 

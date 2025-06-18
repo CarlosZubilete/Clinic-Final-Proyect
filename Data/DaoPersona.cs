@@ -11,7 +11,8 @@ namespace Data
 {
   public class DaoPersona
   {
-    private DataAccess _dataAccess;  
+    
+    private DataAccess _dataAccess = new DataAccess();
     public DaoPersona() { }
     public int AddPersona(Persona persona)
     {
@@ -21,7 +22,7 @@ namespace Data
     }
     public Boolean IsPersonaDuplicate(Persona persona)
     {
-      String query = $"SELECT * FROM Personas WHERE DNI = '{persona.DNI}";
+      String query = $"SELECT * FROM Personas WHERE DNI = '{persona.DNI}'";
       return _dataAccess.RecordExists(query);
     }
     private void BuildAddPersonaParameter(ref SqlCommand command , Persona persona)
@@ -66,7 +67,7 @@ namespace Data
 }
 
 /*
- CREATE PROCEDURE [dbo].[spAgregarPersona]
+CREATE PROCEDURE [dbo].[spAgregarPersona](
     @DNI VARCHAR(8),
     @Nombre VARCHAR(50),
     @Apellido VARCHAR(50),
@@ -77,9 +78,8 @@ namespace Data
     @Id_Localidad INT,
     @Direccion VARCHAR(100) = NULL,
     @CorreoElectronico VARCHAR(100) = NULL,
-    @Telefono VARCHAR(20) = NULL,
+    @Telefono VARCHAR(20) = NULL)
 AS
-
   INSERT INTO Personas (
       DNI, Nombre, Apellido, Sexo, FechaNacimiento,
       Id_Nacionalidad, Id_Provincia, Id_Localidad,
@@ -89,7 +89,6 @@ AS
       @DNI, @Nombre, @Apellido, @Sexo, @FechaNacimiento,
       @Id_Nacionalidad, @Id_Provincia, @Id_Localidad,
       @Direccion, @CorreoElectronico, @Telefono
-  );
-
+  )
   RETURN
 */

@@ -18,7 +18,7 @@ namespace Business
 
       DaoPersona daoPersona = new DaoPersona();
 
-      if (!daoPersona.IsPersonaDuplicate(persona))
+      if (daoPersona.IsPersonaDuplicate(persona))
       {
         return false;
       }

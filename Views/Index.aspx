@@ -30,8 +30,8 @@
       <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
 
       <%-- VALIDATIONS --%>
-      <asp:RequiredFieldValidator ID="requiredName" runat="server" Display="Dynamic" ControlToValidate="textName" Text="This field is required"></asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ID="regexName" runat="server" Text="Must be characters (max 50)" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{1,50}$" ControlToValidate="textName"></asp:RegularExpressionValidator>
+      <asp:RequiredFieldValidator ID="requiredName" runat="server" Display="Dynamic" ControlToValidate="txtName" Text="This field is required"></asp:RequiredFieldValidator>
+      <asp:RegularExpressionValidator ID="regexName" runat="server" Text="Must be characters (max 50)" Display="Dynamic" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{1,50}$" ControlToValidate="txtName"></asp:RegularExpressionValidator>
     </div>
     <%-- LAST-NAME --%>
     <div>
@@ -45,10 +45,10 @@
       <span>Fecha de nacimiento:</span> 
       <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
       <asp:RequiredFieldValidator ID="requiredDate" runat="server" Text="This field is required"
-        ControlToValidate="txtDate" Display="Dynamic" ValidationGroup="Date"></asp:RequiredFieldValidator>
+        ControlToValidate="txtDate" Display="Dynamic"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="regexDate" runat="server" Text="Invalided Date"
         ValidationExpression="^(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[0-2])/([12][0-9]{3})$"
-        Display="Dynamic" ControlToValidate="txtDate" ValidationGroup="Date"></asp:RegularExpressionValidator>
+        Display="Dynamic" ControlToValidate="txtDate"></asp:RegularExpressionValidator>
       <asp:Label runat="server" ID="lblDateError"></asp:Label>
     </div>
     <%-- SEXO --%>
@@ -113,7 +113,7 @@
       </div>
       <hr />
       <%-- BUTTON SEND --%>
-      <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" ValidationGroup="Date" />
+      <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" />
       <hr />
       <%-- LABEL SHOW --%>
       <span>
