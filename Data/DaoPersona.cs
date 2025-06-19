@@ -20,6 +20,11 @@ namespace Data
       this.BuildAddPersonaParameter(ref command, persona);
       return _dataAccess.ExecuteStoredProcedure(command, "spAgregarPersona");
     }
+    public DataTable GetPersonByDNI (string dni)
+    {
+      String query = $"SELECT * FROM Personas WHERE DNI = '{dni}'";
+      return _dataAccess.GetDataTable("Personas", query);
+    }
     public Boolean IsPersonaDuplicate(Persona persona)
     {
       String query = $"SELECT * FROM Personas WHERE DNI = '{persona.DNI}'";

@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true"
   UnobtrusiveValidationMode="None"
-  CodeBehind="Index.aspx.cs" Inherits="Views.Index" %>
+  CodeBehind="AddPersona.aspx.cs" Inherits="Views.Index" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
     </div>
     <%-- DATE --%>
     <div>
-      <span>Fecha de nacimiento:</span> 
+      <span>Fecha de nacimiento:</span>
       <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
       <asp:RequiredFieldValidator ID="requiredDate" runat="server" Text="This field is required"
         ControlToValidate="txtDate" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -96,8 +96,8 @@
       <%-- ADDRESS--%>
       <div>
         <span>Address:</span>
-        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox> 
-        <asp:RegularExpressionValidator ID="regexAddress" runat="server" Text="Max. 100 characters" Display="Dynamic" ValidationExpression="^.{0,100}$" ControlToValidate="txtAddress" ></asp:RegularExpressionValidator>
+        <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="regexAddress" runat="server" Text="Max. 100 characters" Display="Dynamic" ValidationExpression="^.{0,100}$" ControlToValidate="txtAddress"></asp:RegularExpressionValidator>
       </div>
       <%-- EMAIL--%>
       <div>
@@ -113,7 +113,10 @@
       </div>
       <hr />
       <%-- BUTTON SEND --%>
-      <asp:Button ID="btnSend" runat="server" Text="Send" OnClick="btnSend_Click" />
+      <asp:Button ID="btnSend" runat="server" Text="Add as a Medico" OnClick="btnSend_Click" />
+      <hr />
+      <%-- BUTTON SEND --%>
+      <asp:Button runat="server" Text="AddMedico.aspx" ID="btnShowData" ValidationGroup="Test" OnClick="btnShowData_Click" />
       <hr />
       <%-- LABEL SHOW --%>
       <span>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using Data;
 using Entities;
 
@@ -12,6 +13,12 @@ namespace Business
   {
     public PersonaService() { }
 
+    public DataTable GetPersonByDNI(string dni)
+    {
+      
+      DaoPersona daoPersona = new DaoPersona();
+      return daoPersona.GetPersonByDNI(dni);  
+    }
     public bool AddPersona(ref Persona persona)
     {
       int cantRows;
