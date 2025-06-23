@@ -118,7 +118,6 @@ namespace Views
             {
               Session["DataPersona"] = dataPersona;
               Response.Redirect("AddMedico.aspx");
-            
             }
           }
         }
@@ -127,6 +126,7 @@ namespace Views
     protected void btnShowData_Click(object sender, EventArgs e)
     {
       /*
+      */
       PersonaService personaService = new PersonaService();
       DataTable dataPersona = personaService.GetPersonByDNI("12345678");
 
@@ -134,9 +134,7 @@ namespace Views
       {
         Session["DataPersona"] = dataPersona;
         Response.Redirect("AddMedico.aspx");
-
       }
-      */
     }
     private bool AddPerson(Fecha fechaNacimiento, string dni, string name, string lastName, char sexo, string nacionality, string province, string locality, string address, string email, string phone)
     {
