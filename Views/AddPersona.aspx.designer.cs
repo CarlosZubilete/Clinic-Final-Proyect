@@ -294,22 +294,22 @@ namespace Views
     protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPhone;
 
     /// <summary>
-    /// btnSend control.
+    /// btnSendMedico control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnSend;
+    protected global::System.Web.UI.WebControls.Button btnSendMedico;
 
     /// <summary>
-    /// btnShowData control.
+    /// btnSendPacient control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnShowData;
+    protected global::System.Web.UI.WebControls.Button btnSendPacient;
 
     /// <summary>
     /// lblShowMessage control.

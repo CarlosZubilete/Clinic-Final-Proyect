@@ -13,19 +13,23 @@ namespace Business
   {
     public PersonaService() { }
 
+    public Boolean ExistsDNI(String DNI)
+    {
+      DaoPersona daoPersona = new DaoPersona();
+      return daoPersona.IsPersonaDuplicate(DNI);
+    }
     public DataTable GetPersonByDNI(string dni)
     {
-      
       DaoPersona daoPersona = new DaoPersona();
-      return daoPersona.GetPersonByDNI(dni);  
+      return daoPersona.GetPersonByDNI(dni);
     }
-    public bool AddPersona(ref Persona persona)
+    public Boolean AddPersona(ref Persona persona)
     {
       int cantRows;
 
       DaoPersona daoPersona = new DaoPersona();
 
-      if (daoPersona.IsPersonaDuplicate(persona))
+      if (daoPersona.IsPersonaDuplicate(persona.DNI))
       {
         return false;
       }

@@ -8,17 +8,12 @@ namespace Entities
 {
   public class Fecha
   {
-    /*
-    private int _dia;
-    private int _mes;
-    private int _anio;
-    */
     private int _dia, _mes, _anio;
     private int[] _diasMeses = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     public Fecha()
     {
-      // FechaDefault();
+      FechaDefault();
     }
     public Fecha(int dia, int mes, int anio)
     {
@@ -33,7 +28,7 @@ namespace Entities
       {
         if (value > 0 && value <= 31)
         {
-          _dia = value; 
+          _dia = value;
         }
       }
     }
@@ -44,20 +39,14 @@ namespace Entities
       {
         if (value > 0 && value <= 12)
         {
-          _mes = value; 
+          _mes = value;
         }
       }
     }
     public int Year
     {
-      get { return _anio;  }
-      set
-      {
-        //if (value >= 1950  && value <= 2025)
-        //{
-        //}
-          _mes = value;
-      }
+      get { return _anio; }
+      set { _mes = value; }
     }
     public DateTime ToDateTime()
     {

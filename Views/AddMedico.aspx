@@ -34,17 +34,25 @@
         <%-- ONLY NUMBER --%>
         <asp:RegularExpressionValidator ID="regexDNI" runat="server" ControlToValidate="txtLegajo" ValidationExpression="^[1-9][0-9]*$" Text="Only numbers"></asp:RegularExpressionValidator>
         <%-- RANGE 6 NUMBERS --%>
-<%--        <asp:RangeValidator ID="rangeDNI" runat="server" ControlToValidate="txtDNI" Display="Dynamic" Text="Must be 6 numbers" Type="Integer" MaximumValue="999999" MinimumValue="100000"></asp:RangeValidator>--%>
+        <%--        <asp:RangeValidator ID="rangeDNI" runat="server" ControlToValidate="txtDNI" Display="Dynamic" Text="Must be 6 numbers" Type="Integer" MaximumValue="999999" MinimumValue="100000"></asp:RangeValidator>--%>
       </div>
+      <hr />
       <%-- ESPECIALIDAD --%>
       <div>
         Speciality: 
-        <asp:DropDownList ID="ddlSpecialy" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="ddlSpecialy" runat="server">
+          <asp:ListItem Value="0" Enabled="True">-- Seleccionar -- </asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="requiredSpeciality" runat="server" ControlToValidate="ddlSpecialy" InitialValue="0" Text="This field is requeried"></asp:RequiredFieldValidator>
       </div>
       <%-- HORAIOS ATENCION  --%>
 
       <%-- DIAS LABORALES --%>
     </div>
+
+    <%-- ADD MEDICO --%>
+    <hr />
+    <asp:Button ID="btnAdd" runat="server" Text="Agregar Medico" />
   </form>
 </body>
 </html>

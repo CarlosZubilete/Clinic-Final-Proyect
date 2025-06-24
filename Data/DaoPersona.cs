@@ -25,9 +25,9 @@ namespace Data
       String query = $"SELECT * FROM Personas WHERE DNI = '{dni}'";
       return _dataAccess.GetDataTable("Personas", query);
     }
-    public Boolean IsPersonaDuplicate(Persona persona)
+    public Boolean IsPersonaDuplicate(String DNI)
     {
-      String query = $"SELECT * FROM Personas WHERE DNI = '{persona.DNI}'";
+      String query = $"SELECT * FROM Personas WHERE DNI = '{DNI}'";
       return _dataAccess.RecordExists(query);
     }
     private void BuildAddPersonaParameter(ref SqlCommand command , Persona persona)
@@ -67,7 +67,6 @@ namespace Data
       parameter = command.Parameters.Add("@Telefono", SqlDbType.VarChar, 20);
       parameter.Value = persona.Phone;
     }
-
   }
 }
 

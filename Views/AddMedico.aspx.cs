@@ -36,8 +36,8 @@ namespace Views
       ddlSpecialy.DataSource = medicoService.GetSpeciality();
       ddlSpecialy.DataTextField= "Nombre";
       ddlSpecialy.DataValueField = "Id_Especialidad";
-
       ddlSpecialy.DataBind();
+
       ddlSpecialy.Items.Insert(0, new ListItem("-- Select --", "0"));
     }
   }

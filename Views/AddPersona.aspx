@@ -113,10 +113,10 @@
       </div>
       <hr />
       <%-- BUTTON SEND --%>
-      <asp:Button ID="btnSend" runat="server" Text="Add as a Medico" OnClick="btnSend_Click" />
+      <asp:Button ID="btnSendMedico" runat="server" Text="Add as a Medico" OnClick="btnSendMedico_Click" />
       <hr />
       <%-- BUTTON SEND --%>
-      <asp:Button runat="server" Text="AddMedico.aspx" ID="btnShowData" ValidationGroup="Test" OnClick="btnShowData_Click" />
+      <asp:Button runat="server" Text="Add as a Pacient" ID="btnSendPacient" OnClick="btnSendPacient_Click" />
       <hr />
       <%-- LABEL SHOW --%>
       <span>
