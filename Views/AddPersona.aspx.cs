@@ -69,6 +69,8 @@ namespace Views
 
     protected void btnSendMedico_Click(object sender, EventArgs e)
     {
+      /*
+      */
       if (Page.IsValid)
       {
         TryAddPersonaYRedirigir("AddMedico.aspx");
@@ -76,10 +78,12 @@ namespace Views
     }
     protected void btnSendPacient_Click(object sender, EventArgs e)
     {
+      /*
       if (Page.IsValid)
       {
         TryAddPersonaYRedirigir("AddPaciente.aspx");
       }
+      */
     }
     private void TryAddPersonaYRedirigir(string destino)
     {
@@ -144,6 +148,11 @@ namespace Views
 
       return persona;
     }
+
+    //protected void btnSendTest_Click(object sender, EventArgs e)
+    //{
+    //  Response.Redirect("AddMedico.aspx");
+    //}
   }
 }
 

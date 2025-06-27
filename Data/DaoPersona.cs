@@ -34,7 +34,7 @@ namespace Data
     {
       SqlParameter parameter;
       // DNI: 
-      parameter = command.Parameters.Add("@DNI", SqlDbType.VarChar, 8);
+      parameter = command.Parameters.Add("@DNI", SqlDbType.Char, 8);
       parameter.Value = persona.DNI;
       // NAME:
       parameter = command.Parameters.Add("@Nombre", SqlDbType.VarChar, 50);

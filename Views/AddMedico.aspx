@@ -32,27 +32,42 @@
         <%-- REQUIRED --%>
         <asp:RequiredFieldValidator ID="requiredLegajo" runat="server" Display="Dynamic" ControlToValidate="txtLegajo" Text="This field is required"></asp:RequiredFieldValidator>
         <%-- ONLY NUMBER --%>
-        <asp:RegularExpressionValidator ID="regexDNI" runat="server" ControlToValidate="txtLegajo" ValidationExpression="^[1-9][0-9]*$" Text="Only numbers"></asp:RegularExpressionValidator>
-        <%-- RANGE 6 NUMBERS --%>
-        <%--        <asp:RangeValidator ID="rangeDNI" runat="server" ControlToValidate="txtDNI" Display="Dynamic" Text="Must be 6 numbers" Type="Integer" MaximumValue="999999" MinimumValue="100000"></asp:RangeValidator>--%>
+        <asp:RegularExpressionValidator ID="regexLegajo" runat="server" ControlToValidate="txtLegajo" ValidationExpression="^(?!00000)\d{5}$" Text="It must be 5 numbers"></asp:RegularExpressionValidator>
       </div>
       <hr />
       <%-- ESPECIALIDAD --%>
       <div>
-        Speciality: 
+        ESPECIALIDAD: 
         <asp:DropDownList ID="ddlSpecialy" runat="server">
           <asp:ListItem Value="0" Enabled="True">-- Seleccionar -- </asp:ListItem>
         </asp:DropDownList>
         <asp:RequiredFieldValidator ID="requiredSpeciality" runat="server" ControlToValidate="ddlSpecialy" InitialValue="0" Text="This field is requeried"></asp:RequiredFieldValidator>
       </div>
+      <hr />
       <%-- HORAIOS ATENCION  --%>
-
+      <div>
+        HORARIOS ATENCION : 
+        <asp:DropDownList ID="ddlHorariosAtencion" runat="server">
+          <asp:ListItem Value="0" Enabled="True"> -- Seleccionar -- </asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="requiredHorarios" runat="server" ControlToValidate="ddlHorariosAtencion" InitialValue="0" Text="This field is requeried"></asp:RequiredFieldValidator>
+      </div>
+      <hr />
       <%-- DIAS LABORALES --%>
+      <div>
+        DIAS LABORALES : 
+        <asp:DropDownList ID="ddlDiasAtencion" runat="server">
+          <asp:ListItem Value="0" Enabled="True"> -- Seleccionar -- </asp:ListItem>
+        </asp:DropDownList>
+        <asp:RequiredFieldValidator ID="requiredDias" runat="server" ControlToValidate="ddlDiasAtencion" InitialValue="0" Text="This field is requeried"></asp:RequiredFieldValidator>
+      </div>
     </div>
-
+    <hr />
     <%-- ADD MEDICO --%>
     <hr />
-    <asp:Button ID="btnAdd" runat="server" Text="Agregar Medico" />
+    <asp:Button ID="btnAdd" runat="server" Text="Agregar Medico" OnClick="btnAdd_Click" />
+    <hr />
+    <asp:Label ID="lblShowData" runat="server" Text="Label"></asp:Label>
   </form>
 </body>
 </html>

@@ -118,6 +118,9 @@
       <%-- BUTTON SEND --%>
       <asp:Button runat="server" Text="Add as a Pacient" ID="btnSendPacient" OnClick="btnSendPacient_Click" />
       <hr />
+      <%-- BUTTON SEND --%>
+    <%--  <asp:Button runat="server" Text="MEDICO.ASX" ID="Button1" OnClick="btnSendTest_Click" ValidationGroup="test" />
+      <hr />--%>
       <%-- LABEL SHOW --%>
       <span>
         <asp:Label ID="lblShowMessage" runat="server" Text=""></asp:Label>
