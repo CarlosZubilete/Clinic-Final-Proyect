@@ -70,6 +70,7 @@
     <Content Include="AddMedico.aspx" />
     <Content Include="AddPaciente.aspx" />
     <Content Include="AddPersona.aspx" />
+    <Content Include="AddTurno.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="AddPersona.aspx.designer.cs">
       <DependentUpon>AddPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddTurno.aspx.cs">
+      <DependentUpon>AddTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddTurno.aspx.designer.cs">
+      <DependentUpon>AddTurno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

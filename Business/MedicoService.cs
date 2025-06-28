@@ -17,7 +17,7 @@ namespace Business
       int cantRows;
 
       DaoMedico daoMedico = new DaoMedico();
-      
+
       if (daoMedico.IsLegajoDuplicate(medico.Legajo))
       {
         return false;
@@ -40,10 +40,16 @@ namespace Business
       DaoMedico daoMedico = new DaoMedico();
       return daoMedico.GetMedicoByLegajo(legajo);
     }
-    public DataTable GetSpeciality()
+    public DataTable GetAllSpeciality()
     {
       DaoMedico daoMedico = new DaoMedico();
-      return daoMedico.GetSpeciality();
+      return daoMedico.GetAllSpeciality();
+    }
+
+    public DataTable GetAllDoctorsSpecialities(int Id_Specialidad)
+    {
+      DaoMedico daoMedico = new DaoMedico();
+      return daoMedico.GetAllDoctorsSpecialities(Id_Specialidad);
     }
     public DataTable GetHorariosAtencion()
     {

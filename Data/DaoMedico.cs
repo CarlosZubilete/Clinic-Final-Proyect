@@ -12,6 +12,7 @@ namespace Data
   public class DaoMedico
   {
     public DaoMedico() { }
+
     public Boolean IsLegajoDuplicate(String legajo)
     {
       DataAccess dataAccess = new DataAccess();
@@ -24,11 +25,18 @@ namespace Data
       String query = $"SELECT * FROM Medicos WHERE LegajoMedico = '{legajo}'";
       return dataAccess.GetDataTable("Medicos", query);
     }
-    public DataTable GetSpeciality()
+    public DataTable GetAllDoctorsSpecialities(int Id_Especialidad)
+    {
+      DataAccess dataAccess = new DataAccess();
+      String query = $"SELECT P.Nombre + ' ' + P.Apellido AS 'NOMBRE COMPLETO:', M.LegajoMedico FROM Personas P INNER JOIN Medicos M ON P.DNI = M.DNI WHERE M.Id_Especialidad = {Id_Especialidad}";
+      return dataAccess.GetDataTable("Medicos", query);
+    }
+    public DataTable GetAllSpeciality()
     {
       DataAccess dataAccess = new DataAccess();
       return dataAccess.GetDataTable("Especialidades", "Select * from Especialidades");
     }
+
     public DataTable GetHorariosAtencion()
     {
       DataAccess dataAccess = new DataAccess();
@@ -39,7 +47,7 @@ namespace Data
       DataAccess dataAccess = new DataAccess();
       return dataAccess.GetDataTable("DiasAtencion", "Select * from DiasAtencion");
     }
-    public int AddMedico( Medico medico)
+    public int AddMedico(Medico medico)
     {
       DataAccess dataAccess = new DataAccess();
       SqlCommand command = new SqlCommand();

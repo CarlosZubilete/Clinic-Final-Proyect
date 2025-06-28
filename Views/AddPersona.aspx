@@ -109,7 +109,7 @@
       <div>
         <span>Phone: </span>
         <asp:TextBox ID="txtPhone" runat="server"></asp:TextBox>
-        <asp:RegularExpressionValidator ID="regexPhone" runat="server" Text="Must be numbers" Display="Dynamic" ValidationExpression="^[0-9]*$" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
+        <asp:RegularExpressionValidator ID="regexPhone" runat="server" Text="Must be numbers" Display="Dynamic" ValidationExpression="^[\+\-0-9]*$" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
       </div>
       <hr />
       <%-- BUTTON SEND --%>
@@ -119,8 +119,10 @@
       <asp:Button runat="server" Text="Add as a Pacient" ID="btnSendPacient" OnClick="btnSendPacient_Click" />
       <hr />
       <%-- BUTTON SEND --%>
-    <%--  <asp:Button runat="server" Text="MEDICO.ASX" ID="Button1" OnClick="btnSendTest_Click" ValidationGroup="test" />
-      <hr />--%>
+
+        <asp:Button runat="server" Text="AddTurno.aspx" ID="Button1" OnClick="btnSendTest_Click" ValidationGroup="test" />
+
+      <hr />
       <%-- LABEL SHOW --%>
       <span>
         <asp:Label ID="lblShowMessage" runat="server" Text=""></asp:Label>
@@ -130,4 +132,4 @@
 </body>
 </html>
 
-<%-- TODO: AGRUPAR LOS TEXT-BOX PARA INFROMARLE AL USUARIO , EN DONDE ESTA HERRANDO. --%>
+<%-- TODO: PHONE HAVE TO ACEPT A SINGS , FOR EXAMPLE + 567 (ESPACIO) 1234 . --%>

@@ -35,7 +35,7 @@ namespace Views
     {
       MedicoService medicoService = new MedicoService();
 
-      ddlSpecialy.DataSource = medicoService.GetSpeciality();
+      ddlSpecialy.DataSource = medicoService.GetAllSpeciality();
       ddlSpecialy.DataTextField = "Nombre";
       ddlSpecialy.DataValueField = "Id_Especialidad";
       ddlSpecialy.DataBind();
