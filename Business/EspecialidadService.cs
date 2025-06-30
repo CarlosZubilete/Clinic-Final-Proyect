@@ -11,11 +11,11 @@ namespace Business
   public class EspecialidadService
   {
     public EspecialidadService() { }
-    
-    public DataTable GetEspecialidades()
+
+    public DataTable GetSpecialities()
     {
       DaoEspecialidades daoEspecialidades = new DaoEspecialidades();
-      return daoEspecialidades.GetEspecialidades();
+      return daoEspecialidades.GetEspecialidades(); // Name of table.
     }
   }
 }

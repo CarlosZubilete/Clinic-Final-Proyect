@@ -132,6 +132,24 @@ namespace Views
     protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDoctorSpeciality;
 
     /// <summary>
+    /// ddlDaysAvailable control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlDaysAvailable;
+
+    /// <summary>
+    /// requiredDaysAvailable control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDaysAvailable;
+
+    /// <summary>
     /// lblShow control.
     /// </summary>
     /// <remarks>

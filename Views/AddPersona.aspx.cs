@@ -152,6 +152,7 @@ namespace Views
     protected void btnSendTest_Click(object sender, EventArgs e)
     {
       Response.Redirect("AddTurno.aspx");
+      //Response.Redirect("AddMedico.aspx");
     }
   }
 }

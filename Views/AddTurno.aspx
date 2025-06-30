@@ -45,32 +45,44 @@
           <%-- LEGAJO MEDICO --%>
           <div>
             <span>MEDICOS:</span>
-            <asp:DropDownList ID="ddlSpecialityDoctors" runat="server">
+            <asp:DropDownList ID="ddlSpecialityDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSpecialityDoctors_SelectedIndexChanged">
               <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="requiredDoctorSpeciality" runat="server" Text="You must select one" ControlToValidate="ddlSpecialityDoctors" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
           </div>
           <%-- LABEL SHOW --%>
           <hr />
+
+          <%-- TURNO DISPONIBILIDAD --%>
+          <%-- DIAS DISPONIBILIDAD --%>
+          <div>
+            <span>Dias Disponibles: </span>
+            <asp:DropDownList ID="ddlDaysAvailable" runat="server">
+              <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="requiredDaysAvailable" runat="server" Text="You must select one" ControlToValidate="ddlDaysAvailable" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+          </div>
+          <hr />
+
+          <%-- TURNO DISPONIBILIDAD --%>
+          <%-- HORARIOS DISPONIBILIDAD --%>
           <asp:Label ID="lblShow" runat="server" Text=""></asp:Label>
         </ContentTemplate>
       </asp:UpdatePanel>
     </div>
 
 
-
     <%-- FECHA TURNO --%>
     <div>
     </div>
 
-    <%-- HORARIO--%>
+    <%-- OBESERVACION--%>
     <div>
     </div>
 
-    <%-- LEGAJO OBESERVACION--%>
-    <div>
-    </div>
-
+    <hr />
+    <%-- BUTTON --%>
+    <%--    <asp:Button ID="btnSendTurno" runat="server" Text="Agendar" OnClick="btnSendTurno_Click" ValidationGroup="test" />--%>
   </form>
 </body>
 </html>

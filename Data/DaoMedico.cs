@@ -42,10 +42,10 @@ namespace Data
       DataAccess dataAccess = new DataAccess();
       return dataAccess.GetDataTable("HorariosAtencion", "Select * from HorariosAtencion");
     }
-    public DataTable GetDiasAtencion()
+    public DataTable GetDaysAvailableByLegajo(string legajo)
     {
       DataAccess dataAccess = new DataAccess();
-      return dataAccess.GetDataTable("DiasAtencion", "Select * from DiasAtencion");
+      return dataAccess.GetDataTable("Medicos", $"SELECT Medicos.Id_DiasAtencion,Dias.Nombre FROM Medicos JOIN [DiasAtencion.Dias] ON Medicos.Id_DiasAtencion = [DiasAtencion.Dias].Id_DiaAtencion JOIN Dias ON [DiasAtencion.Dias].Id_Dia = Dias.Id_Dia WHERE Medicos.LegajoMedico = '{legajo}'");
     }
     public int AddMedico(Medico medico)
     {

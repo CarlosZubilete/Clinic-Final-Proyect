@@ -56,10 +56,10 @@ namespace Business
       DaoMedico daoMedico = new DaoMedico();
       return daoMedico.GetHorariosAtencion();
     }
-    public DataTable GetDiasAtencion()
+    public DataTable GetDaysAvailableByLegajo(string lejago)
     {
       DaoMedico daoMedico = new DaoMedico();
-      return daoMedico.GetDiasAtencion();
+      return daoMedico.GetDaysAvailableByLegajo(lejago);
     }
   }
 }

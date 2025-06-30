@@ -33,57 +33,41 @@ namespace Views
 
     private void Load_Speciality()
     {
-      MedicoService medicoService = new MedicoService();
-
-      ddlSpecialy.DataSource = medicoService.GetAllSpeciality();
+      EspecialidadService especialidadService = new EspecialidadService();
+      ddlSpecialy.DataSource = especialidadService.GetSpecialities();
       ddlSpecialy.DataTextField = "Nombre";
       ddlSpecialy.DataValueField = "Id_Especialidad";
       ddlSpecialy.DataBind();
-
       ddlSpecialy.Items.Insert(0, new ListItem("-- Select --", "0"));
     }
     private void Load_Horarios()
     {
-      MedicoService medicoService = new MedicoService();
-
-      ddlHorariosAtencion.DataSource = medicoService.GetHorariosAtencion();
+      HorariosAtencionService horariosAtencionService = new HorariosAtencionService();
+      ddlHorariosAtencion.DataSource = horariosAtencionService.GetSheduleDoctor();
       ddlHorariosAtencion.DataTextField = "Descripcion";
       ddlHorariosAtencion.DataValueField = "Id_HorarioAtencion";
       ddlHorariosAtencion.DataBind();
-
       ddlHorariosAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
     private void Load_Dias()
     {
-      MedicoService medicoService = new MedicoService();
-
-      ddlDiasAtencion.DataSource = medicoService.GetDiasAtencion();
+      DiasAtencionService diasAtencionService = new DiasAtencionService();
+      ddlDiasAtencion.DataSource = diasAtencionService.GetDaysAvailable();
       ddlDiasAtencion.DataTextField = "Descripcion";
       ddlDiasAtencion.DataValueField = "Id_DiaAtencion";
       ddlDiasAtencion.DataBind();
-
       ddlDiasAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-      /*
-      string query;
-      query = $"Legajo: {txtLegajo.Text.ToString().Trim()}";
-      query += $"Especialidad: {ddlSpecialy.SelectedValue}";
-      query += $"Dias Laborales: {ddlDiasAtencion.SelectedValue}";
-      query += $"Horarios Atencion : {ddlHorariosAtencion.SelectedValue}";
-
-      lblShowData.Text = query;
-      */
-
       Medico medico = BuiltMedico();
       MedicoService service = new MedicoService();
 
       if (service.ExistsLegajo(medico.Legajo))
       {
-        lblShowData.Text = "Legajo has already exists"; 
-        return; 
+        lblShowData.Text = "Legajo has already exists";
+        return;
       }
       if (service.AddMedico(ref medico))
       {
