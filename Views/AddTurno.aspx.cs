@@ -21,8 +21,8 @@ namespace Views
     }
     private void Load_Specialities()
     {
-      MedicoService medicoService = new MedicoService();
-      ddlSpecialities.DataSource = medicoService.GetAllSpeciality();
+      EspecialidadService especialidadService = new EspecialidadService();
+      ddlSpecialities.DataSource = especialidadService.GetSpecialities();
       ddlSpecialities.DataTextField = "Nombre";
       ddlSpecialities.DataValueField = "Id_Especialidad";
       ddlSpecialities.DataBind();
@@ -62,14 +62,11 @@ namespace Views
     private void Load_Specialities_Doctors(int Id_Speciality)
     {
       MedicoService medicoService = new MedicoService();
-
       ddlSpecialityDoctors.DataSource = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
       ddlSpecialityDoctors.DataTextField = "NOMBRE COMPLETO:";
       ddlSpecialityDoctors.DataValueField = "LegajoMedico";
       ddlSpecialityDoctors.DataBind();
       ddlSpecialityDoctors.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
-
-      //lblShow.Text += $"Doctor: {ddlSpecialityDoctors.SelectedValue}";
     }
     protected void ddlSpecialityDoctors_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -77,15 +74,17 @@ namespace Views
 
       if (selectedSpecialityDoctor != 0)
       {
+        Load_DaysAvailable(ddlSpecialityDoctors.SelectedValue);
+        Load_ScheduleDoctors(ddlSpecialityDoctors.SelectedValue);
         lblShow.Text = $"Espcialidad seleccionada: {ddlSpecialities.SelectedValue} </br>";
         lblShow.Text += $"Legajo Doctor: {ddlSpecialityDoctors.SelectedValue}";
-        Load_DaysAvailable(ddlSpecialityDoctors.SelectedValue);
+        // lblShow.Text += $"Dia: {ddlDaysAvailable.SelectedValue}";
       }
       else
       {
         ddlSpecialityDoctors.Items.Clear();
         ddlSpecialityDoctors.Items.Insert(0, new ListItem(" -- Select --", "0"));
-        ddlSpecialityDoctors.Text = string.Empty; 
+        ddlSpecialityDoctors.Text = string.Empty;
       }
     }
     private void Load_DaysAvailable(string legajoMedico)
@@ -98,6 +97,15 @@ namespace Views
       ddlDaysAvailable.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
 
+    private void Load_ScheduleDoctors(string legajo) // Also the function must give an Id_diasAtencion
+    {
+      MedicoService medicoService = new MedicoService();
+      ddlDoctorsSchedules.DataSource = medicoService.GetScheduleDoctorByLegajo(legajo);
+      ddlDoctorsSchedules.DataTextField = "Horario";
+      ddlDoctorsSchedules.DataValueField = "Id_Hora";
+      ddlDoctorsSchedules.DataBind();
+      ddlDoctorsSchedules.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+    }
 
     //protected void btnSendTurno_Click(object sender, EventArgs e)
     //{

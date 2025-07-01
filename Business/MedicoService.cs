@@ -40,26 +40,20 @@ namespace Business
       DaoMedico daoMedico = new DaoMedico();
       return daoMedico.GetMedicoByLegajo(legajo);
     }
-    public DataTable GetAllSpeciality()
-    {
-      DaoMedico daoMedico = new DaoMedico();
-      return daoMedico.GetAllSpeciality();
-    }
-
     public DataTable GetAllDoctorsSpecialities(int Id_Specialidad)
     {
       DaoMedico daoMedico = new DaoMedico();
       return daoMedico.GetAllDoctorsSpecialities(Id_Specialidad);
     }
-    public DataTable GetHorariosAtencion()
-    {
-      DaoMedico daoMedico = new DaoMedico();
-      return daoMedico.GetHorariosAtencion();
-    }
     public DataTable GetDaysAvailableByLegajo(string lejago)
     {
       DaoMedico daoMedico = new DaoMedico();
       return daoMedico.GetDaysAvailableByLegajo(lejago);
+    }
+    public DataTable GetScheduleDoctorByLegajo(string lejago)
+    {
+      DaoMedico daoMedico = new DaoMedico();
+      return daoMedico.GetScheduleDoctorByLegajo(lejago);
     }
   }
 }

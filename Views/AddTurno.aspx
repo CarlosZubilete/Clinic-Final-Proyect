@@ -50,7 +50,7 @@
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="requiredDoctorSpeciality" runat="server" Text="You must select one" ControlToValidate="ddlSpecialityDoctors" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
           </div>
-          <%-- LABEL SHOW --%>
+
           <hr />
 
           <%-- TURNO DISPONIBILIDAD --%>
@@ -66,7 +66,18 @@
 
           <%-- TURNO DISPONIBILIDAD --%>
           <%-- HORARIOS DISPONIBILIDAD --%>
+          <div>
+            <span>Horarios Disponibles: </span>
+            <asp:DropDownList ID="ddlDoctorsSchedules" runat="server">
+              <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ID="requiredDoctorSchedules" runat="server" Text="You must select one" ControlToValidate="ddlDoctorsSchedules" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+          </div>
+
+          <hr />
+          <%-- LABEL SHOW --%>
           <asp:Label ID="lblShow" runat="server" Text=""></asp:Label>
+
         </ContentTemplate>
       </asp:UpdatePanel>
     </div>

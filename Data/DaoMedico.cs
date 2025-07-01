@@ -31,21 +31,15 @@ namespace Data
       String query = $"SELECT P.Nombre + ' ' + P.Apellido AS 'NOMBRE COMPLETO:', M.LegajoMedico FROM Personas P INNER JOIN Medicos M ON P.DNI = M.DNI WHERE M.Id_Especialidad = {Id_Especialidad}";
       return dataAccess.GetDataTable("Medicos", query);
     }
-    public DataTable GetAllSpeciality()
-    {
-      DataAccess dataAccess = new DataAccess();
-      return dataAccess.GetDataTable("Especialidades", "Select * from Especialidades");
-    }
-
-    public DataTable GetHorariosAtencion()
-    {
-      DataAccess dataAccess = new DataAccess();
-      return dataAccess.GetDataTable("HorariosAtencion", "Select * from HorariosAtencion");
-    }
     public DataTable GetDaysAvailableByLegajo(string legajo)
     {
       DataAccess dataAccess = new DataAccess();
       return dataAccess.GetDataTable("Medicos", $"SELECT Medicos.Id_DiasAtencion,Dias.Nombre FROM Medicos JOIN [DiasAtencion.Dias] ON Medicos.Id_DiasAtencion = [DiasAtencion.Dias].Id_DiaAtencion JOIN Dias ON [DiasAtencion.Dias].Id_Dia = Dias.Id_Dia WHERE Medicos.LegajoMedico = '{legajo}'");
+    }
+    public DataTable GetScheduleDoctorByLegajo(string legajo)
+    {
+      DataAccess dataAccess = new DataAccess();
+      return dataAccess.GetDataTable("Medicos", $"SELECT Horas.Id_Hora, Horas.HoraInicio 'Horario' FROM Medicos JOIN[HorariosAtencion.Horas] ON Medicos.Id_HorariosAtencion = [HorariosAtencion.Horas].Id_HorarioAtencion JOIN Horas ON[HorariosAtencion.Horas].Id_Hora = Horas.Id_Hora WHERE Medicos.LegajoMedico = '{legajo}'");
     }
     public int AddMedico(Medico medico)
     {
