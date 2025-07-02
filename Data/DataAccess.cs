@@ -66,6 +66,24 @@ namespace Data
         }
       }
     }
+    public DataTable GetDataTable(String querySql)
+    {
+      using (SqlConnection connection = GetConnection())
+      {
+        try
+        {
+          DataSet dataSet = new DataSet();
+          SqlDataAdapter dataAdapter = GetDataAdapter(querySql, connection);
+          dataAdapter.Fill(dataSet); 
+          return dataSet.Tables[0];  // devolver la primera tabla
+        }
+        catch (SqlException err)
+        {
+          Console.WriteLine("Error: " + err.Message);
+          return null;
+        }
+      }
+    }
     private SqlConnection GetConnection()
     {
       try

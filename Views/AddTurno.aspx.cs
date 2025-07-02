@@ -107,17 +107,20 @@ namespace Views
       ddlDoctorsSchedules.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
 
-    //protected void btnSendTurno_Click(object sender, EventArgs e)
-    //{
-    //  int selectedSpeciality = Convert.ToInt32(ddlSpecialities.SelectedValue);
-    //  int selectedSpecialityDoctor = Convert.ToInt32(ddlSpecialityDoctors.SelectedValue);
+    protected void btnSendTurno_Click(object sender, EventArgs e)
+    {
+      string year, day, month;
+      day = txtDateTurno.Text.ToString().Split('-')[0];
+      month = txtDateTurno.Text.ToString().Split('-')[1];
+      year = txtDateTurno.Text.ToString().Split('-')[2];
 
-    //  if (selectedSpeciality != 0 && selectedSpecialityDoctor != 0)
-    //  {
-    //    lblShow.Text = $"Espcialidad seleccionada: {ddlSpecialities.SelectedValue} </br>";
-    //    lblShow.Text += $"Legajo Doctor: {ddlSpecialityDoctors.SelectedValue}";
-    //    Load_DaysAvailable(ddlSpecialityDoctors.SelectedValue);
-    //  }
-    //}
+      //lblDateError.Text = $"TRUNO: {year} - {month} - {day}";
+
+      FechaService fechaService = new FechaService();
+      DataTable dataFecha = fechaService.GetDayName(day, month, year);
+      lblDateError.Text = " Dia: "  + dataFecha.Rows[0]["NameDay"].ToString();
+
+
+    }
   }
 }

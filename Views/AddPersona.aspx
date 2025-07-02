@@ -120,7 +120,7 @@
       <hr />
       <%-- BUTTON SEND --%>
 
-        <asp:Button runat="server" Text="Medico.aspx" ID="Button1" OnClick="btnSendTest_Click" ValidationGroup="test" />
+        <asp:Button runat="server" Text="Turno.aspx" ID="Button1" OnClick="btnSendTest_Click" ValidationGroup="test" />
 
       <hr />
       <%-- LABEL SHOW --%>

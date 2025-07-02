@@ -92,8 +92,19 @@
     </div>
 
     <hr />
-    <%-- BUTTON --%>
-    <%--    <asp:Button ID="btnSendTurno" runat="server" Text="Agendar" OnClick="btnSendTurno_Click" ValidationGroup="test" />--%>
+    <div>
+      <span>Date Turno: </span>
+      <asp:TextBox ID="txtDateTurno" runat="server"></asp:TextBox>
+      <%-- REGEX VALIDATION --%>
+      <asp:RegularExpressionValidator ID="regexDate" runat="server" Text="Invalided Date"
+        ValidationExpression="^(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[0-2])-([12][0-9]{3})$"
+        Display="Dynamic" ControlToValidate="txtDateTurno"></asp:RegularExpressionValidator>
+      <%-- BUTTON --%>
+      <asp:Button ID="btnSendTurno" runat="server" Text="Agendar" OnClick="btnSendTurno_Click" ValidationGroup="test" />
+      <hr />
+
+      <asp:Label runat="server" ID="lblDateError"></asp:Label>
+    </div>
   </form>
 </body>
 </html>
