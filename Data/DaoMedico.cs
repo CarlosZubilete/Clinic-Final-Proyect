@@ -34,7 +34,7 @@ namespace Data
     public DataTable GetDaysAvailableByLegajo(string legajo)
     {
       DataAccess dataAccess = new DataAccess();
-      return dataAccess.GetDataTable("Medicos", $"SELECT Medicos.Id_DiasAtencion,Dias.Nombre FROM Medicos JOIN [DiasAtencion.Dias] ON Medicos.Id_DiasAtencion = [DiasAtencion.Dias].Id_DiaAtencion JOIN Dias ON [DiasAtencion.Dias].Id_Dia = Dias.Id_Dia WHERE Medicos.LegajoMedico = '{legajo}'");
+      return dataAccess.GetDataTable("Medicos", $"SELECT Medicos.Id_DiasAtencion,Dias.Nombre, Dias.Id_Dia  FROM Medicos JOIN [DiasAtencion.Dias] ON Medicos.Id_DiasAtencion = [DiasAtencion.Dias].Id_DiaAtencion JOIN Dias ON [DiasAtencion.Dias].Id_Dia = Dias.Id_Dia WHERE Medicos.LegajoMedico = '{legajo}'");
     }
     public DataTable GetScheduleDoctorByLegajo(string legajo)
     {

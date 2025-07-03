@@ -76,8 +76,7 @@ namespace Views
       {
         Load_DaysAvailable(ddlSpecialityDoctors.SelectedValue);
         Load_ScheduleDoctors(ddlSpecialityDoctors.SelectedValue);
-        lblShow.Text = $"Espcialidad seleccionada: {ddlSpecialities.SelectedValue} </br>";
-        lblShow.Text += $"Legajo Doctor: {ddlSpecialityDoctors.SelectedValue}";
+
         // lblShow.Text += $"Dia: {ddlDaysAvailable.SelectedValue}";
       }
       else
@@ -87,12 +86,28 @@ namespace Views
         ddlSpecialityDoctors.Text = string.Empty;
       }
     }
+    protected void ddlDaysAvailable_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      int selectedDayDoctor = Convert.ToInt32(ddlDaysAvailable.SelectedValue);
+
+      if (selectedDayDoctor > 0)
+      {
+        lblShow.Text = $"Especialidad seleccionada: {ddlSpecialities.SelectedItem.Text} <br/>";
+        lblShow.Text += $"Legajo Doctor: {ddlSpecialityDoctors.SelectedItem.Text} <br/>";
+        lblShow.Text += $"Id_Dia = {selectedDayDoctor}";
+      }
+      else
+      {
+        lblShow.Text = string.Empty;
+      }
+
+    }
     private void Load_DaysAvailable(string legajoMedico)
     {
       MedicoService medicoService = new MedicoService();
       ddlDaysAvailable.DataSource = medicoService.GetDaysAvailableByLegajo(legajoMedico);
       ddlDaysAvailable.DataTextField = "Nombre";
-      ddlDaysAvailable.DataValueField = "Id_DiasAtencion";
+      ddlDaysAvailable.DataValueField = "Id_Dia";
       ddlDaysAvailable.DataBind();
       ddlDaysAvailable.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
@@ -116,11 +131,18 @@ namespace Views
 
       //lblDateError.Text = $"TRUNO: {year} - {month} - {day}";
 
+      string date = $"{year}-{month}-{day}";
       FechaService fechaService = new FechaService();
-      DataTable dataFecha = fechaService.GetDayName(day, month, year);
-      lblDateError.Text = " Dia: "  + dataFecha.Rows[0]["NameDay"].ToString();
+      DataTable dataDay = fechaService.GetDayName(date);
+      lblDateError.Text = " Dia: " + dataDay.Rows[0]["NameDay"].ToString() + " = " + dataDay.Rows[0]["NumberDay"].ToString() + "</br>";
 
+      DataTable dataMonth = fechaService.GetMonthName(date);
+      lblDateError.Text += "Mes: " + dataMonth.Rows[0]["NameMonth"].ToString();
+      lblDateError.Text += " = " + dataMonth.Rows[0]["NumberMonth"].ToString();
 
     }
+
+
   }
 }
+

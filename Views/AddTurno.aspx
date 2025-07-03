@@ -57,7 +57,7 @@
           <%-- DIAS DISPONIBILIDAD --%>
           <div>
             <span>Dias Disponibles: </span>
-            <asp:DropDownList ID="ddlDaysAvailable" runat="server">
+            <asp:DropDownList ID="ddlDaysAvailable" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDaysAvailable_SelectedIndexChanged">
               <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="requiredDaysAvailable" runat="server" Text="You must select one" ControlToValidate="ddlDaysAvailable" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>

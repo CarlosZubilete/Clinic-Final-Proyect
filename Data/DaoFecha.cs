@@ -13,8 +13,13 @@ namespace Data
     public DataTable GetDayName(string date)
     {
       DataAccess dataAccess = new DataAccess();
-      return dataAccess.GetDataTable($"SELECT DATEPART(DAY, '{date}') AS 'NumberDay', DATENAME(WEEKDAY, '{date}') AS 'NameDay'");
+      return dataAccess.GetDataTable($"SELECT DATEPART(WEEKDAY, '{date}') AS 'NumberDay', DATENAME(WEEKDAY, '{date}') AS 'NameDay'");
     }
 
+    public DataTable GetMonthName(string date)
+    {
+      DataAccess dataAccess = new DataAccess();
+      return dataAccess.GetDataTable($"SELECT DATEPART(MONTH, '{date}') AS 'NumberMonth',DATENAME(MONTH, '{date}') AS 'NameMonth'");
+    }
   }
 }
