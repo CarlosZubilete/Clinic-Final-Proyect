@@ -22,12 +22,15 @@ namespace Views
     private void Load_Specialities()
     {
       EspecialidadService especialidadService = new EspecialidadService();
-      ddlSpecialities.DataSource = especialidadService.GetSpecialities();
-      ddlSpecialities.DataTextField = "Nombre";
-      ddlSpecialities.DataValueField = "Id_Especialidad";
-      ddlSpecialities.DataBind();
-      ddlSpecialities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = especialidadService.GetSpecialities();
+      //ddlSpecialities.DataSource = especialidadService.GetSpecialities();
+      //ddlSpecialities.DataTextField = "Nombre";
+      //ddlSpecialities.DataValueField = "Id_Especialidad";
+      //ddlSpecialities.DataBind();
+      //ddlSpecialities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlSpecialities, source, "Nombre", "Id_Especialidad");
     }
+
     protected void btnLookup_Click(object sender, EventArgs e)
     {
       string dni = txtDNI.Text.ToString().Trim();
@@ -47,7 +50,7 @@ namespace Views
     {
       int selectedId = Convert.ToInt32(ddlSpecialities.SelectedValue);
 
-      if (selectedId != 0)
+      if (selectedId != 0)// don't must be '>' cero
       {
         Load_Specialities_Doctors(selectedId);
       }
@@ -62,12 +65,15 @@ namespace Views
     private void Load_Specialities_Doctors(int Id_Speciality)
     {
       MedicoService medicoService = new MedicoService();
-      ddlSpecialityDoctors.DataSource = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
-      ddlSpecialityDoctors.DataTextField = "NOMBRE COMPLETO:";
-      ddlSpecialityDoctors.DataValueField = "LegajoMedico";
-      ddlSpecialityDoctors.DataBind();
-      ddlSpecialityDoctors.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
+      //ddlSpecialityDoctors.DataSource = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
+      //ddlSpecialityDoctors.DataTextField = "NOMBRE COMPLETO:";
+      //ddlSpecialityDoctors.DataValueField = "LegajoMedico";
+      //ddlSpecialityDoctors.DataBind();
+      //ddlSpecialityDoctors.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlSpecialityDoctors, source, "NOMBRE COMPLETO:", "LegajoMedico");
     }
+
     protected void ddlSpecialityDoctors_SelectedIndexChanged(object sender, EventArgs e)
     {
       int selectedSpecialityDoctor = Convert.ToInt32(ddlSpecialityDoctors.SelectedValue);
@@ -105,21 +111,25 @@ namespace Views
     private void Load_DaysAvailable(string legajoMedico)
     {
       MedicoService medicoService = new MedicoService();
-      ddlDaysAvailable.DataSource = medicoService.GetDaysAvailableByLegajo(legajoMedico);
-      ddlDaysAvailable.DataTextField = "Nombre";
-      ddlDaysAvailable.DataValueField = "Id_Dia";
-      ddlDaysAvailable.DataBind();
-      ddlDaysAvailable.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = medicoService.GetDaysAvailableByLegajo(legajoMedico);
+      //ddlDaysAvailable.DataSource = medicoService.GetDaysAvailableByLegajo(legajoMedico);
+      //ddlDaysAvailable.DataTextField = "Nombre";
+      //ddlDaysAvailable.DataValueField = "Id_Dia";
+      //ddlDaysAvailable.DataBind();
+      //ddlDaysAvailable.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlDaysAvailable, source, "Nombre", "Id_Dia");
     }
 
     private void Load_ScheduleDoctors(string legajo) // Also the function must give an Id_diasAtencion
     {
       MedicoService medicoService = new MedicoService();
-      ddlDoctorsSchedules.DataSource = medicoService.GetScheduleDoctorByLegajo(legajo);
-      ddlDoctorsSchedules.DataTextField = "Horario";
-      ddlDoctorsSchedules.DataValueField = "Id_Hora";
-      ddlDoctorsSchedules.DataBind();
-      ddlDoctorsSchedules.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = medicoService.GetScheduleDoctorByLegajo(legajo);
+      //ddlDoctorsSchedules.DataSource = medicoService.GetScheduleDoctorByLegajo(legajo);
+      //ddlDoctorsSchedules.DataTextField = "Horario";
+      //ddlDoctorsSchedules.DataValueField = "Id_Hora";
+      //ddlDoctorsSchedules.DataBind();
+      //ddlDoctorsSchedules.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlDoctorsSchedules, source, "Horario", "Id_hora");
     }
 
     protected void btnSendTurno_Click(object sender, EventArgs e)
@@ -140,6 +150,14 @@ namespace Views
       lblDateError.Text += "Mes: " + dataMonth.Rows[0]["NameMonth"].ToString();
       lblDateError.Text += " = " + dataMonth.Rows[0]["NumberMonth"].ToString();
 
+    }
+    private void BindDropDownList(DropDownList ddl, DataTable dataSource, string textField, string valueField)
+    {
+      ddl.DataSource = dataSource;
+      ddl.DataTextField = textField;
+      ddl.DataValueField = valueField;
+      ddl.DataBind();
+      ddl.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
 
 
