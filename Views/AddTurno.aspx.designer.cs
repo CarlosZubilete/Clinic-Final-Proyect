@@ -96,6 +96,24 @@ namespace Views
     protected global::System.Web.UI.UpdatePanel UpdatePanel_DDL;
 
     /// <summary>
+    /// txtDateTurno control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtDateTurno;
+
+    /// <summary>
+    /// regexDate control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDate;
+
+    /// <summary>
     /// ddlSpecialities control.
     /// </summary>
     /// <remarks>
@@ -114,6 +132,15 @@ namespace Views
     protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredSpecialities;
 
     /// <summary>
+    /// btnSendTurno control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnSendTurno;
+
+    /// <summary>
     /// ddlSpecialityDoctors control.
     /// </summary>
     /// <remarks>
@@ -130,6 +157,15 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredDoctorSpeciality;
+
+    /// <summary>
+    /// lblDateError control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblDateError;
 
     /// <summary>
     /// ddlDaysAvailable control.
@@ -175,41 +211,5 @@ namespace Views
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label lblShow;
-
-    /// <summary>
-    /// txtDateTurno control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtDateTurno;
-
-    /// <summary>
-    /// regexDate control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDate;
-
-    /// <summary>
-    /// btnSendTurno control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnSendTurno;
-
-    /// <summary>
-    /// lblDateError control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblDateError;
   }
 }

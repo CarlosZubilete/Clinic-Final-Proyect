@@ -28,27 +28,42 @@
       <asp:Button ID="btnLookup" runat="server" Text="Buscar" OnClick="btnLookup_Click" />
     </div>
     <hr />
-
-    <%-- ESPECIALIDAD --%>
     <div>
       <%-- UPPANEL FOR THE DROP-DOWN-LIST --%>
       <asp:UpdatePanel ID="UpdatePanel_DDL" runat="server">
         <ContentTemplate>
+          <h3>Lookup Turno:</h3>
           <div>
-            <span>ESPECIALIDAD: </span>
-            <asp:DropDownList ID="ddlSpecialities" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSpecialities_SelectedIndexChanged">
-              <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
-            </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="requiredSpecialities" runat="server" Text="You must select one" ControlToValidate="ddlSpecialities" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+
+            <span>Date Turno: </span>
+            <asp:TextBox ID="txtDateTurno" runat="server"></asp:TextBox>
+            <%-- REGEX VALIDATION --%>
+            <asp:RegularExpressionValidator ID="regexDate" runat="server" Text="Invalided Date"
+              ValidationExpression="^(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[0-2])-([12][0-9]{3})$"
+              Display="Dynamic" ControlToValidate="txtDateTurno"></asp:RegularExpressionValidator>
+            <%-- DDL SPECIALITIES --%>
+            <div>
+              <span>ESPECIALIDAD: </span>
+              <asp:DropDownList ID="ddlSpecialities" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSpecialities_SelectedIndexChanged">
+                <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
+              </asp:DropDownList>
+              <asp:RequiredFieldValidator ID="requiredSpecialities" runat="server" Text="You must select one" ControlToValidate="ddlSpecialities" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+            </div>
+            <%-- BUTTON --%>
+            <asp:Button ID="btnSendTurno" runat="server" Text="Find" OnClick="btnSendTurno_Click" ValidationGroup="test" />
+
           </div>
           <hr />
-          <%-- LEGAJO MEDICO --%>
           <div>
-            <span>MEDICOS:</span>
-            <asp:DropDownList ID="ddlSpecialityDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSpecialityDoctors_SelectedIndexChanged">
-              <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
-            </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="requiredDoctorSpeciality" runat="server" Text="You must select one" ControlToValidate="ddlSpecialityDoctors" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+            <div>
+              <span>MEDICOS:</span>
+              <asp:DropDownList ID="ddlSpecialityDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSpecialityDoctors_SelectedIndexChanged">
+                <asp:ListItem Value="0" Enabled="True"> -- Select -- </asp:ListItem>
+              </asp:DropDownList>
+              <asp:RequiredFieldValidator ID="requiredDoctorSpeciality" runat="server" Text="You must select one" ControlToValidate="ddlSpecialityDoctors" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+            </div>
+            <asp:Label runat="server" ID="lblDateError"></asp:Label>
+
           </div>
 
           <hr />
@@ -91,20 +106,8 @@
     <div>
     </div>
 
-    <hr />
-    <div>
-      <span>Date Turno: </span>
-      <asp:TextBox ID="txtDateTurno" runat="server"></asp:TextBox>
-      <%-- REGEX VALIDATION --%>
-      <asp:RegularExpressionValidator ID="regexDate" runat="server" Text="Invalided Date"
-        ValidationExpression="^(0[1-9]|1[0-9]|2[0-9]|3[01])-(0[1-9]|1[0-2])-([12][0-9]{3})$"
-        Display="Dynamic" ControlToValidate="txtDateTurno"></asp:RegularExpressionValidator>
-      <%-- BUTTON --%>
-      <asp:Button ID="btnSendTurno" runat="server" Text="Agendar" OnClick="btnSendTurno_Click" ValidationGroup="test" />
-      <hr />
 
-      <asp:Label runat="server" ID="lblDateError"></asp:Label>
-    </div>
+
   </form>
 </body>
 </html>

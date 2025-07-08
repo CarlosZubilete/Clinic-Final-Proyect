@@ -23,11 +23,6 @@ namespace Views
     {
       EspecialidadService especialidadService = new EspecialidadService();
       DataTable source = especialidadService.GetSpecialities();
-      //ddlSpecialities.DataSource = especialidadService.GetSpecialities();
-      //ddlSpecialities.DataTextField = "Nombre";
-      //ddlSpecialities.DataValueField = "Id_Especialidad";
-      //ddlSpecialities.DataBind();
-      //ddlSpecialities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
       this.BindDropDownList(ddlSpecialities, source, "Nombre", "Id_Especialidad");
     }
 
@@ -66,11 +61,6 @@ namespace Views
     {
       MedicoService medicoService = new MedicoService();
       DataTable source = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
-      //ddlSpecialityDoctors.DataSource = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
-      //ddlSpecialityDoctors.DataTextField = "NOMBRE COMPLETO:";
-      //ddlSpecialityDoctors.DataValueField = "LegajoMedico";
-      //ddlSpecialityDoctors.DataBind();
-      //ddlSpecialityDoctors.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
       this.BindDropDownList(ddlSpecialityDoctors, source, "NOMBRE COMPLETO:", "LegajoMedico");
     }
 
@@ -112,11 +102,6 @@ namespace Views
     {
       MedicoService medicoService = new MedicoService();
       DataTable source = medicoService.GetDaysAvailableByLegajo(legajoMedico);
-      //ddlDaysAvailable.DataSource = medicoService.GetDaysAvailableByLegajo(legajoMedico);
-      //ddlDaysAvailable.DataTextField = "Nombre";
-      //ddlDaysAvailable.DataValueField = "Id_Dia";
-      //ddlDaysAvailable.DataBind();
-      //ddlDaysAvailable.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
       this.BindDropDownList(ddlDaysAvailable, source, "Nombre", "Id_Dia");
     }
 
@@ -124,17 +109,12 @@ namespace Views
     {
       MedicoService medicoService = new MedicoService();
       DataTable source = medicoService.GetScheduleDoctorByLegajo(legajo);
-      //ddlDoctorsSchedules.DataSource = medicoService.GetScheduleDoctorByLegajo(legajo);
-      //ddlDoctorsSchedules.DataTextField = "Horario";
-      //ddlDoctorsSchedules.DataValueField = "Id_Hora";
-      //ddlDoctorsSchedules.DataBind();
-      //ddlDoctorsSchedules.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
       this.BindDropDownList(ddlDoctorsSchedules, source, "Horario", "Id_hora");
     }
 
     protected void btnSendTurno_Click(object sender, EventArgs e)
     {
-      string year, day, month;
+      string year, day, month; // DATE TURNO
       day = txtDateTurno.Text.ToString().Split('-')[0];
       month = txtDateTurno.Text.ToString().Split('-')[1];
       year = txtDateTurno.Text.ToString().Split('-')[2];
@@ -142,14 +122,26 @@ namespace Views
       //lblDateError.Text = $"TRUNO: {year} - {month} - {day}";
 
       string date = $"{year}-{month}-{day}";
+
+      int dayTurno = Convert.ToInt32(ddlDaysAvailable.SelectedValue); 
+
       FechaService fechaService = new FechaService();
-      DataTable dataDay = fechaService.GetDayName(date);
-      lblDateError.Text = " Dia: " + dataDay.Rows[0]["NameDay"].ToString() + " = " + dataDay.Rows[0]["NumberDay"].ToString() + "</br>";
+      DataTable dataDay = fechaService.GetDayName(date); // Query DATENAME(WeekDay, 'date' ) ..;
+      string nameDay = dataDay.Rows[0]["NameDay"].ToString();
+      int numberDay = Convert.ToInt32(dataDay.Rows[0]["NumberDay"]);
 
-      DataTable dataMonth = fechaService.GetMonthName(date);
-      lblDateError.Text += "Mes: " + dataMonth.Rows[0]["NameMonth"].ToString();
-      lblDateError.Text += " = " + dataMonth.Rows[0]["NumberMonth"].ToString();
+      lblDateError.Text = $"Dia: {nameDay}  =  {numberDay} </br>";
 
+      if(numberDay - 1  == dayTurno)
+      {
+        // We get a list from database of Dortors with id:
+        // We need speciality:
+        lblDateError.Text += "They are same";
+
+      }
+      //DataTable dataMonth = fechaService.GetMonthName(date);
+      //lblDateError.Text += "Mes: " + dataMonth.Rows[0]["NameMonth"].ToString();
+      //lblDateError.Text += " = " + dataMonth.Rows[0]["NumberMonth"].ToString();
     }
     private void BindDropDownList(DropDownList ddl, DataTable dataSource, string textField, string valueField)
     {
