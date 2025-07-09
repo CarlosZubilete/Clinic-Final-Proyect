@@ -30,35 +30,39 @@ namespace Views
         Load_Dias();
       }
     }
-
     private void Load_Speciality()
     {
       EspecialidadService especialidadService = new EspecialidadService();
-      ddlSpecialy.DataSource = especialidadService.GetSpecialities();
-      ddlSpecialy.DataTextField = "Nombre";
-      ddlSpecialy.DataValueField = "Id_Especialidad";
-      ddlSpecialy.DataBind();
-      ddlSpecialy.Items.Insert(0, new ListItem("-- Select --", "0"));
+      DataTable source = especialidadService.GetSpecialities();
+      //ddlSpecialy.DataSource = especialidadService.GetSpecialities();
+      //ddlSpecialy.DataTextField = "Nombre";
+      //ddlSpecialy.DataValueField = "Id_Especialidad";
+      //ddlSpecialy.DataBind();
+      //ddlSpecialy.Items.Insert(0, new ListItem("-- Select --", "0"));
+      this.BindDropDownList(ddlSpecialy, source, "Nombre", "Id_Especialidad");
     }
     private void Load_Horarios()
     {
       HorariosAtencionService horariosAtencionService = new HorariosAtencionService();
-      ddlHorariosAtencion.DataSource = horariosAtencionService.GetSheduleDoctor();
-      ddlHorariosAtencion.DataTextField = "Descripcion";
-      ddlHorariosAtencion.DataValueField = "Id_HorarioAtencion";
-      ddlHorariosAtencion.DataBind();
-      ddlHorariosAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = horariosAtencionService.GetSheduleDoctor();
+      //ddlHorariosAtencion.DataSource = horariosAtencionService.GetSheduleDoctor();
+      //ddlHorariosAtencion.DataTextField = "Descripcion";
+      //ddlHorariosAtencion.DataValueField = "Id_HorarioAtencion";
+      //ddlHorariosAtencion.DataBind();
+      //ddlHorariosAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlHorariosAtencion, source, "Descripcion", "Id_HorarioAtencion");
     }
     private void Load_Dias()
     {
       DiasAtencionService diasAtencionService = new DiasAtencionService();
-      ddlDiasAtencion.DataSource = diasAtencionService.GetDaysAvailable();
-      ddlDiasAtencion.DataTextField = "Descripcion";
-      ddlDiasAtencion.DataValueField = "Id_DiaAtencion";
-      ddlDiasAtencion.DataBind();
-      ddlDiasAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      DataTable source = diasAtencionService.GetDaysAvailable();
+      //ddlDiasAtencion.DataSource = diasAtencionService.GetDaysAvailable();
+      //ddlDiasAtencion.DataTextField = "Descripcion";
+      //ddlDiasAtencion.DataValueField = "Id_DiaAtencion";
+      //ddlDiasAtencion.DataBind();
+      //ddlDiasAtencion.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+      this.BindDropDownList(ddlDiasAtencion, source, "Descripcion", "Id_DiaAtencion");
     }
-
     protected void btnAdd_Click(object sender, EventArgs e)
     {
       Medico medico = BuiltMedico();
@@ -74,7 +78,6 @@ namespace Views
         lblShowData.Text = "Can add the register successfully";
         CleanControls();
       }
-
     }
     private Medico BuiltMedico()
     {
@@ -95,6 +98,13 @@ namespace Views
       ddlDiasAtencion.SelectedIndex = 0;
       ddlHorariosAtencion.SelectedIndex = 0;
     }
-
+    private void BindDropDownList(DropDownList ddl, DataTable dataSource, string textField, string valueField)
+    {
+      ddl.DataSource = dataSource;
+      ddl.DataTextField = textField;
+      ddl.DataValueField = valueField;
+      ddl.DataBind();
+      ddl.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
+    }
   }
 }

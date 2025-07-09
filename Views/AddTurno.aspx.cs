@@ -19,13 +19,6 @@ namespace Views
         Load_Specialities();
       }
     }
-    private void Load_Specialities()
-    {
-      EspecialidadService especialidadService = new EspecialidadService();
-      DataTable source = especialidadService.GetSpecialities();
-      this.BindDropDownList(ddlSpecialities, source, "Nombre", "Id_Especialidad");
-    }
-
     protected void btnLookup_Click(object sender, EventArgs e)
     {
       string dni = txtDNI.Text.ToString().Trim();
@@ -40,6 +33,13 @@ namespace Views
       {
         lblFullName.Text = "Canot find data";
       }
+    }
+    
+    private void Load_Specialities()
+    {
+      EspecialidadService especialidadService = new EspecialidadService();
+      DataTable source = especialidadService.GetSpecialities();
+      this.BindDropDownList(ddlSpecialities, source, "Nombre", "Id_Especialidad");
     }
     protected void ddlSpecialities_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -56,14 +56,12 @@ namespace Views
         ddlSpecialities.Text = string.Empty;
       }
     }
-
     private void Load_Specialities_Doctors(int Id_Speciality)
     {
       MedicoService medicoService = new MedicoService();
       DataTable source = medicoService.GetAllDoctorsSpecialities(Id_Speciality);
       this.BindDropDownList(ddlSpecialityDoctors, source, "NOMBRE COMPLETO:", "LegajoMedico");
     }
-
     protected void ddlSpecialityDoctors_SelectedIndexChanged(object sender, EventArgs e)
     {
       int selectedSpecialityDoctor = Convert.ToInt32(ddlSpecialityDoctors.SelectedValue);
@@ -98,20 +96,7 @@ namespace Views
       }
 
     }
-    private void Load_DaysAvailable(string legajoMedico)
-    {
-      MedicoService medicoService = new MedicoService();
-      DataTable source = medicoService.GetDaysAvailableByLegajo(legajoMedico);
-      this.BindDropDownList(ddlDaysAvailable, source, "Nombre", "Id_Dia");
-    }
-
-    private void Load_ScheduleDoctors(string legajo) // Also the function must give an Id_diasAtencion
-    {
-      MedicoService medicoService = new MedicoService();
-      DataTable source = medicoService.GetScheduleDoctorByLegajo(legajo);
-      this.BindDropDownList(ddlDoctorsSchedules, source, "Horario", "Id_hora");
-    }
-
+    // TODO: This function is incomplete.
     protected void btnSendTurno_Click(object sender, EventArgs e)
     {
       string year, day, month; // DATE TURNO
@@ -123,7 +108,7 @@ namespace Views
 
       string date = $"{year}-{month}-{day}";
 
-      int dayTurno = Convert.ToInt32(ddlDaysAvailable.SelectedValue); 
+      int dayTurno = Convert.ToInt32(ddlDaysAvailable.SelectedValue);
 
       FechaService fechaService = new FechaService();
       DataTable dataDay = fechaService.GetDayName(date); // Query DATENAME(WeekDay, 'date' ) ..;
@@ -132,16 +117,27 @@ namespace Views
 
       lblDateError.Text = $"Dia: {nameDay}  =  {numberDay} </br>";
 
-      if(numberDay - 1  == dayTurno)
+      if (numberDay - 1 == dayTurno)
       {
         // We get a list from database of Dortors with id:
         // We need speciality:
         lblDateError.Text += "They are same";
-
       }
       //DataTable dataMonth = fechaService.GetMonthName(date);
       //lblDateError.Text += "Mes: " + dataMonth.Rows[0]["NameMonth"].ToString();
       //lblDateError.Text += " = " + dataMonth.Rows[0]["NumberMonth"].ToString();
+    }
+    private void Load_DaysAvailable(string legajoMedico)
+    {
+      MedicoService medicoService = new MedicoService();
+      DataTable source = medicoService.GetDaysAvailableByLegajo(legajoMedico);
+      this.BindDropDownList(ddlDaysAvailable, source, "Nombre", "Id_Dia");
+    }
+    private void Load_ScheduleDoctors(string legajo) // Also the function must give an Id_diasAtencion
+    {
+      MedicoService medicoService = new MedicoService();
+      DataTable source = medicoService.GetScheduleDoctorByLegajo(legajo);
+      this.BindDropDownList(ddlDoctorsSchedules, source, "Horario", "Id_hora");
     }
     private void BindDropDownList(DropDownList ddl, DataTable dataSource, string textField, string valueField)
     {
@@ -152,7 +148,5 @@ namespace Views
       ddl.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
 
-
   }
 }
-

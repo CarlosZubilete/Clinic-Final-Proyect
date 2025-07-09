@@ -11,43 +11,43 @@ namespace Views
 {
 
 
-  public partial class AddPaciente
+  public partial class Home
   {
 
     /// <summary>
-    /// form1 control.
+    /// txtLoginName control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    protected global::System.Web.UI.WebControls.TextBox txtLoginName;
 
     /// <summary>
-    /// lblDNI control.
+    /// txtLoginPass control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblDNI;
+    protected global::System.Web.UI.WebControls.TextBox txtLoginPass;
 
     /// <summary>
-    /// lblFullName control.
+    /// btnLogin control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblFullName;
+    protected global::System.Web.UI.WebControls.Button btnLogin;
 
     /// <summary>
-    /// lblBirthdate control.
+    /// lbbMessageSystem control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblBirthdate;
+    protected global::System.Web.UI.WebControls.Label lbbMessageSystem;
   }
 }

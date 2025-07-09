@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+  CodeBehind="Clinica.Master.cs" Inherits="Views.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+  <title>Clinica</title>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+  <link href="Styles/master.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <form id="form1" runat="server">
+    <div>
+      <div class="navBar">
+        <ul class="navBar__ul">
+          <li class="navBar__ul__li">
+            <asp:HyperLink ID="Home" runat="server" NavigateUrl="~/Home.aspx" CssClass="navBar__link">Inicio</asp:HyperLink>
+          </li>
+          <li class="navBar__ul__li">
+            <asp:HyperLink ID="AddPerson" runat="server" NavigateUrl="~/AddPerson.aspx" CssClass="navBar__link">Agregar Persona</asp:HyperLink>
+          </li>
+          <%--       <li class="navBar__ul__li">
+            <asp:HyperLink ID="AddPaciente" runat="server" NavigateUrl="~/.aspx" CssClass="navBar__link">Agregar Paciente</asp:HyperLink>
+          </li>--%>
+          <%--          <li class="navBar__ul__li">
+            <asp:HyperLink ID="AddMedico" runat="server" NavigateUrl="~/.aspx" CssClass="navBar__link">Agregar Persona</asp:HyperLink>
+          </li>--%>
+          <li class="navBar__ul__li">
+            <asp:HyperLink ID="AddTurno" runat="server" NavigateUrl="~/AddTurno.aspx" CssClass="navBar__link">Agregar Turno</asp:HyperLink>
+          </li>
+        </ul>
+      </div>
+
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+      </asp:ContentPlaceHolder>
+
+    </div>
+  </form>
+</body>
+</html>

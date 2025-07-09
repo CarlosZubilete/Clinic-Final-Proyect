@@ -10,7 +10,7 @@ using Entities;
 
 namespace Views
 {
-  public partial class Index : System.Web.UI.Page
+  public partial class AddPerson : System.Web.UI.Page
   {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -66,15 +66,12 @@ namespace Views
       ddlNacionalities.DataBind();
       ddlNacionalities.Items.Insert(0, new ListItem(" -- Select -- ", "0"));
     }
-
     protected void btnSendMedico_Click(object sender, EventArgs e)
     {
-      /*
-      if (Page.IsValid)
-      {
-        TryAddPersonaYRedirigir("AddMedico.aspx");
-      }
-      */
+      //if (Page.IsValid)
+      //{
+      //  TryAddPersonaYRedirigir("AddMedico.aspx");
+      //} 
     }
     protected void btnSendPacient_Click(object sender, EventArgs e)
     {
@@ -129,7 +126,6 @@ namespace Views
       year = txtDate.Text.ToString().Split('/')[2];
       return new Fecha(Convert.ToInt32(day), Convert.ToInt32(month), Convert.ToInt32(year));
     }
-
     private Persona BuiltPersona(Fecha fechaNacimiento)
     {
       string dni = txtDNI.Text.ToString().Trim();
@@ -148,14 +144,11 @@ namespace Views
 
       return persona;
     }
-
     protected void btnSendTest_Click(object sender, EventArgs e)
     {
-      Response.Redirect("AddTurno.aspx");
+      //Response.Redirect("AddTurno.aspx");
+      Response.Redirect("AddMedico.aspx");
       //Response.Redirect("AddMedico.aspx");
     }
   }
 }
-
-// TODO: Maybe we can a fuction for IsDuplicatePerson. 
-// TODO: Create addd as a medico or a paciente. 

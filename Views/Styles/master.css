@@ -1,0 +1,66 @@
+﻿/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo general */
+body {
+  background-color: #f0f0f0; /* gris claro */
+  color: #333; /* texto oscuro */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar */
+.navBar {
+  background-color: #444;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navBar__ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navBar__ul__li {
+  font-weight: bold;
+  list-style: none;
+}
+  /*Hover suave*/
+  .navBar__ul__li:hover {
+    color: #ccc;
+    cursor: pointer;
+  }
+
+.navBar__link.active {
+  color: aqua;
+  letter-spacing: .2rem;
+}
+/* Estilo para los links de navegación */
+.navBar__link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+  /* Hover suave */
+  .navBar__link:hover {
+    color: #ccc;
+  }
+
+/* Título */
+.title {
+  margin: 2rem 0 1rem 0;
+  font-size: 1.8rem;
+  color: #555;
+}

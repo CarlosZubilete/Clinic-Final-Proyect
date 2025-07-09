@@ -68,9 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddMedico.aspx" />
-    <Content Include="AddPaciente.aspx" />
-    <Content Include="AddPersona.aspx" />
+    <Content Include="AddPerson.aspx" />
     <Content Include="AddTurno.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="Styles\master.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,19 +82,12 @@
     <Compile Include="AddMedico.aspx.designer.cs">
       <DependentUpon>AddMedico.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddPaciente.aspx.cs">
-      <DependentUpon>AddPaciente.aspx</DependentUpon>
+    <Compile Include="AddPerson.aspx.cs">
+      <DependentUpon>AddPerson.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddPaciente.aspx.designer.cs">
-      <DependentUpon>AddPaciente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AddPersona.aspx.cs">
-      <DependentUpon>AddPersona.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddPersona.aspx.designer.cs">
-      <DependentUpon>AddPersona.aspx</DependentUpon>
+    <Compile Include="AddPerson.aspx.designer.cs">
+      <DependentUpon>AddPerson.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddTurno.aspx.cs">
       <DependentUpon>AddTurno.aspx</DependentUpon>
@@ -102,10 +96,25 @@
     <Compile Include="AddTurno.aspx.designer.cs">
       <DependentUpon>AddTurno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Clinica.Master.cs">
+      <DependentUpon>Clinica.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clinica.Master.designer.cs">
+      <DependentUpon>Clinica.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Clinica.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
